@@ -1,0 +1,7 @@
+Ritual has a growing community of developers, researchers, and enthusiasts. The official Ritual documentation is available at docs.ritual.net and ritualfoundation.org/docs. Community members can join discussions, get support, and contribute to the ecosystem.
+
+Ritual Foundation provides documentation including overviews, tutorials, and reference material. Key resources include the glossary for blockchain and Ritual-specific terms, architecture documentation for EVM++, Symphony, Resonance, execution sidecars, and Infernet, and tutorials for building on Ritual such as lending protocols, smart agents, automated prediction markets, and cross-chain yield aggregation.
+
+Ritual Portals are cross-chain bridges built on GMP protocols that enable secure access to Ritual's specialized compute capabilities from any blockchain. Portals handle message verification, state synchronization, and result delivery. Chain abstraction enables seamless interaction between different blockchain networks while maintaining security and consistency. High-performance chains that require a prover network, Rollup-as-a-Service offerings that need efficient execution of heterogeneous compute, and projects monetizing IP via a verifiable marketplace can all use Ritual.
+
+The totality of the Ritual vision is infrastructure for a world where powerful technologies are accessible, interoperable, and trustworthy by default. Built with Mintlify. For the latest updates and community links, refer to the official Ritual channels and documentation index.

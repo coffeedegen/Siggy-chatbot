@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #0a0a0f;
+  --cosmic: #1a1a2e;
+  --accent: #6366f1;
+  --accent-dim: #4f46e5;
+}
+
+body {
+  background: var(--void);
+  color: #e2e8f0;
+}
+
+/* Scrollbar styling for chat */
+.chat-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: var(--cosmic);
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
