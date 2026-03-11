@@ -105,32 +105,49 @@ export default function ChatPage() {
     setInput("");
     setLoading(true);
 
+    const assistantId = crypto.randomUUID();
+    const assistantMessage: Message = { id: assistantId, role: "assistant", content: "" };
+    setMessages((prev) => [...prev, assistantMessage]);
+
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: trimmed }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Request failed");
 
-      const assistantMessage: Message = {
-        id: crypto.randomUUID(),
-        role: "assistant",
-        content: data.reply ?? "No response.",
-      };
-      const finalMessages = [...updatedMessages, assistantMessage];
-      setMessages(finalMessages);
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Request failed");
+      }
+
+      const reader = res.body!.getReader();
+      const decoder = new TextDecoder();
+      let fullContent = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        fullContent += chunk;
+        setMessages((prev) =>
+          prev.map((m) => m.id === assistantId ? { ...m, content: fullContent } : m)
+        );
+      }
+
+      const finalMessages = [
+        ...updatedMessages,
+        { id: assistantId, role: "assistant" as const, content: fullContent },
+      ];
       saveSession(sessionId, finalMessages, trimmed);
     } catch (err) {
-      const errorMessage: Message = {
-        id: crypto.randomUUID(),
-        role: "assistant",
-        content: `Something went wrong: ${err instanceof Error ? err.message : "Unknown error"}.`,
-      };
-      const finalMessages = [...updatedMessages, errorMessage];
-      setMessages(finalMessages);
-      saveSession(sessionId, finalMessages, trimmed);
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === assistantId
+            ? { ...m, content: `Something went wrong: ${err instanceof Error ? err.message : "Unknown error"}.` }
+            : m
+        )
+      );
     } finally {
       setLoading(false);
     }
