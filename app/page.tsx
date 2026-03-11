@@ -565,24 +565,24 @@ export default function ChatPage() {
                   }`}
                 >
                   <p
-                    className="text-xs font-semibold mb-1.5 tracking-widest uppercase"
+                    className="font-bold mb-2 tracking-widest uppercase"
                     style={{
                       color: msg.role === "user"
-                        ? "rgba(0,0,0,0.55)"
-                        : "rgba(64,255,175,0.7)",
-                      fontSize: "11px",
+                        ? "rgba(0,0,0,0.65)"
+                        : "rgba(64,255,175,0.85)",
+                      fontSize: "14px",
                       letterSpacing: "0.2em",
                       fontFamily: "'Cinzel Decorative', serif",
-                      fontWeight: 700,
                     }}
                   >
                     {msg.role === "user" ? "You" : "✦ Siggy"}
                   </p>
                   <p
-                    className="text-sm leading-relaxed whitespace-pre-wrap siggy-font"
+                    className="leading-relaxed whitespace-pre-wrap siggy-font"
                     style={{
-                      color: msg.role === "user" ? "#000" : "rgba(232,245,240,0.88)",
-                      fontSize: "0.9rem",
+                      color: msg.role === "user" ? "#000" : "rgba(232,245,240,0.92)",
+                      fontSize: "1.15rem",
+                      lineHeight: "1.75",
                     }}
                   >
                     {msg.content}
@@ -613,7 +613,7 @@ export default function ChatPage() {
                 </div>
                 <div className="siggy-bubble rounded-2xl rounded-bl-sm px-5 py-4">
                   <p className="font-bold mb-2 tracking-widest"
-                    style={{ color: "rgba(64,255,175,0.6)", fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Cinzel Decorative', serif" }}>
+                    style={{ color: "rgba(64,255,175,0.7)", fontSize: "14px", letterSpacing: "0.2em", fontFamily: "'Cinzel Decorative', serif" }}>
                     ✦ SIGGY
                   </p>
                   <div className="flex gap-1.5 items-center">
