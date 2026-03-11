@@ -28,37 +28,48 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Load sessions from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem("siggy-sessions");
-    if (saved) {
-      const parsed: ChatSession[] = JSON.parse(saved);
-      setSessions(parsed);
-    }
+    if (saved) setSessions(JSON.parse(saved));
   }, []);
 
-  // Save sessions to localStorage whenever they change
   useEffect(() => {
-    if (sessions.length > 0) {
+    if (sessions.length > 0)
       localStorage.setItem("siggy-sessions", JSON.stringify(sessions));
-    }
   }, [sessions]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages]);
 
+  // Close sidebar when clicking outside on mobile
+  useEffect(() => {
+    if (sidebarOpen) {
+      const handler = (e: MouseEvent) => {
+        const sidebar = document.getElementById("sidebar");
+        if (sidebar && !sidebar.contains(e.target as Node)) {
+          setSidebarOpen(false);
+        }
+      };
+      document.addEventListener("mousedown", handler);
+      return () => document.removeEventListener("mousedown", handler);
+    }
+  }, [sidebarOpen]);
+
   function startNewChat() {
     setCurrentSessionId(null);
     setMessages([]);
     setInput("");
+    setSidebarOpen(false);
   }
 
   function loadSession(session: ChatSession) {
     setCurrentSessionId(session.id);
     setMessages(session.messages);
+    setSidebarOpen(false);
   }
 
   function saveSession(sessionId: string, updatedMessages: Message[], firstUserMessage: string) {
@@ -68,15 +79,16 @@ export default function ChatPage() {
         return prev.map((s) =>
           s.id === sessionId ? { ...s, messages: updatedMessages } : s
         );
-      } else {
-        const newSession: ChatSession = {
+      }
+      return [
+        {
           id: sessionId,
           title: firstUserMessage.slice(0, 40) + (firstUserMessage.length > 40 ? "..." : ""),
           messages: updatedMessages,
           createdAt: Date.now(),
-        };
-        return [newSession, ...prev];
-      }
+        },
+        ...prev,
+      ];
     });
   }
 
@@ -87,12 +99,7 @@ export default function ChatPage() {
     const sessionId = currentSessionId ?? crypto.randomUUID();
     if (!currentSessionId) setCurrentSessionId(sessionId);
 
-    const userMessage: Message = {
-      id: crypto.randomUUID(),
-      role: "user",
-      content: trimmed,
-    };
-
+    const userMessage: Message = { id: crypto.randomUUID(), role: "user", content: trimmed };
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
     setInput("");
@@ -112,7 +119,6 @@ export default function ChatPage() {
         role: "assistant",
         content: data.reply ?? "No response.",
       };
-
       const finalMessages = [...updatedMessages, assistantMessage];
       setMessages(finalMessages);
       saveSession(sessionId, finalMessages, trimmed);
@@ -136,25 +142,41 @@ export default function ChatPage() {
   }
 
   return (
-    <div
-      className="flex h-screen bg-[#0e0e10] text-white overflow-hidden"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
-    >
+    <div className="flex h-screen bg-[#0e0e10] text-white overflow-hidden" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 bg-black/60 z-20 md:hidden" onClick={() => setSidebarOpen(false)} />
+      )}
+
       {/* Sidebar */}
-      <aside className="w-56 flex-shrink-0 bg-[#13131a] border-r border-white/5 flex flex-col p-4 gap-4">
+      <aside
+        id="sidebar"
+        className={`
+          fixed md:static inset-y-0 left-0 z-30
+          w-64 md:w-56 flex-shrink-0
+          bg-[#13131a] border-r border-white/5
+          flex flex-col p-4 gap-4
+          transform transition-transform duration-300 ease-in-out
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+        `}
+      >
         {/* Logo */}
-        <div className="flex items-center gap-2 py-2">
-          <img
-            src="/siggy-avatar.png"
-            alt="Siggy"
-            className="w-6 h-6 rounded-full object-cover"
-          />
-          <span className="font-bold text-base tracking-tight text-[#40FFAF]">
-            Siggy, the Wise
-          </span>
+        <div className="flex items-center justify-between py-2">
+          <div className="flex items-center gap-2">
+            <img src="/siggy-avatar.png" alt="Siggy" className="w-6 h-6 rounded-full object-cover" />
+            <span className="font-bold text-base tracking-tight text-[#40FFAF]">Siggy, the Wise</span>
+          </div>
+          {/* Close button - mobile only */}
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="md:hidden text-white/40 hover:text-white p-1"
+          >
+            ✕
+          </button>
         </div>
 
-        {/* New Chat Button */}
+        {/* New Chat */}
         <button
           onClick={startNewChat}
           className="flex items-center justify-center gap-2 w-full bg-[#40FFAF]/10 hover:bg-[#40FFAF]/20 border border-[#40FFAF]/30 hover:border-[#40FFAF]/60 text-[#40FFAF] text-sm font-semibold py-2.5 rounded-xl transition-all"
@@ -187,42 +209,69 @@ export default function ChatPage() {
         </div>
       </aside>
 
-      {/* Main Chat Area */}
+      {/* Main */}
       <main className="flex flex-col flex-1 min-w-0">
-        {/* Messages */}
-       {/* Top Logo Bar */}
-      <div className="flex-shrink-0 flex justify-center pt-6 pb-2">
-        <img src="/ritual-logo.png" alt="Ritual" className="h-8 opacity-80" />
-      </div>
 
-      {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-6 py-4 space-y-4">
+        {/* Mobile top bar */}
+        <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-white/5 flex-shrink-0">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="text-white/60 hover:text-white p-1"
+          >
+            {/* Hamburger */}
+            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <line x1="3" y1="6" x2="17" y2="6" />
+              <line x1="3" y1="10" x2="17" y2="10" />
+              <line x1="3" y1="14" x2="17" y2="14" />
+            </svg>
+          </button>
+          <span className="text-sm font-bold text-[#40FFAF]">Siggy, the Wise</span>
+          <button
+            onClick={startNewChat}
+            className="text-[#40FFAF] text-xl font-bold p-1"
+          >
+            +
+          </button>
+        </div>
+
+        {/* Ritual logo - desktop only */}
+        <div className="hidden md:flex flex-shrink-0 justify-center pt-6 pb-2">
+        <img src="/ritual-logo.png" alt="Ritual" className="h-24 opacity-80" />
+        </div>
+
+        {/* Messages */}
+        <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-4 md:px-6 py-4 space-y-4">
+
           {/* Empty state */}
           {messages.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full gap-6 pb-8">
+            <div className="flex flex-col items-center justify-center h-full gap-5 pb-8">
+              {/* Ritual logo - mobile */}
+              <img src="/ritual-logo.png" alt="Ritual" className="h-6 opacity-60 md:hidden" />
+
               <div className="relative">
                 <div className="absolute inset-0 rounded-full bg-[#40FFAF]/20 blur-2xl scale-150" />
                 <img
                   src="/siggy-main.png"
                   alt="Siggy"
-                  className="relative w-40 h-40 object-contain drop-shadow-lg"
+                 className="relative w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-lg"
                 />
               </div>
-              <div className="text-center">
-                <h2 className="text-2xl font-bold mb-2">
+              <div className="text-center px-4">
+                <h2 className="text-xl md:text-2xl font-bold mb-2">
                   Siggy, <span className="text-[#40FFAF]">the Wise</span>
                 </h2>
-                <p className="text-sm text-white/40 max-w-xs">
+                <p className="text-xs md:text-sm text-white/40 max-w-xs">
                   Siggy is ready to cast a spell of clarity on your problems.
                 </p>
               </div>
-              {/* Quick prompt buttons */}
-              <div className="flex flex-col gap-3 w-full max-w-md">
+
+              {/* Quick prompts */}
+              <div className="flex flex-col gap-2 w-full max-w-sm px-4">
                 {QUICK_PROMPTS.map((p) => (
                   <button
                     key={p}
                     onClick={() => sendMessage(p)}
-                    className="w-full text-sm text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#40FFAF]/40 px-5 py-3 rounded-xl transition-all text-center font-medium"
+                    className="w-full text-xs md:text-sm text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#40FFAF]/40 px-4 py-2.5 md:py-3 rounded-xl transition-all text-center font-medium"
                   >
                     {p}
                   </button>
@@ -235,19 +284,13 @@ export default function ChatPage() {
           {messages.map((msg) => (
             <div
               key={msg.id}
-              className={`flex items-end gap-2.5 ${
-                msg.role === "user" ? "justify-end" : "justify-start"
-              }`}
+              className={`flex items-end gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
             >
               {msg.role === "assistant" && (
-                <img
-                  src="/siggy-avatar.png"
-                  alt="Siggy"
-                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30"
-                />
+                <img src="/siggy-avatar.png" alt="Siggy" className="w-7 h-7 md:w-8 md:h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30" />
               )}
               <div
-                className={`max-w-[75%] rounded-2xl px-4 py-3 ${
+                className={`max-w-[80%] md:max-w-[75%] rounded-2xl px-3 md:px-4 py-2.5 md:py-3 ${
                   msg.role === "user"
                     ? "bg-[#40FFAF] text-black rounded-br-sm"
                     : "bg-[#1a1a24] border border-white/5 text-white/85 rounded-bl-sm"
@@ -256,28 +299,18 @@ export default function ChatPage() {
                 <p className="text-xs font-bold mb-1 opacity-60">
                   {msg.role === "user" ? "You" : "Siggy"}
                 </p>
-                <p className="text-sm whitespace-pre-wrap leading-relaxed">
-                  {msg.content}
-                </p>
+                <p className="text-xs md:text-sm whitespace-pre-wrap leading-relaxed">{msg.content}</p>
               </div>
               {msg.role === "user" && (
-                <img
-                  src="/user-avatar.png"
-                  alt="You"
-                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-white/20"
-                />
+                <img src="/user-avatar.png" alt="You" className="w-7 h-7 md:w-8 md:h-8 rounded-full object-cover flex-shrink-0 border border-white/20" />
               )}
             </div>
           ))}
 
           {/* Loading */}
           {loading && (
-            <div className="flex items-end gap-2.5 justify-start">
-              <img
-                src="/siggy-avatar.png"
-                alt="Siggy"
-                className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30"
-              />
+            <div className="flex items-end gap-2 justify-start">
+              <img src="/siggy-avatar.png" alt="Siggy" className="w-7 h-7 md:w-8 md:h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30" />
               <div className="bg-[#1a1a24] border border-white/5 rounded-2xl rounded-bl-sm px-4 py-3">
                 <p className="text-xs font-bold mb-2 opacity-40">Siggy</p>
                 <div className="flex gap-1.5">
@@ -291,9 +324,9 @@ export default function ChatPage() {
         </div>
 
         {/* Input */}
-        <div className="flex-shrink-0 px-6 py-4 border-t border-white/5">
+        <div className="flex-shrink-0 px-4 md:px-6 py-3 md:py-4 border-t border-white/5">
           <form onSubmit={handleSubmit}>
-            <div className="flex items-center gap-3 bg-[#1a1a24] border border-white/10 rounded-2xl px-4 py-3 focus-within:border-[#40FFAF]/40 transition-colors">
+            <div className="flex items-center gap-2 md:gap-3 bg-[#1a1a24] border border-white/10 rounded-2xl px-3 md:px-4 py-2.5 md:py-3 focus-within:border-[#40FFAF]/40 transition-colors">
               <input
                 type="text"
                 value={input}
