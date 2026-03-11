@@ -8,7 +8,6 @@ import { openai, CHAT_MODEL } from "@/lib/openai";
 import { searchChunks } from "@/lib/vectorSearch";
 import { buildSystemMessage } from "@/lib/siggyPrompt";
 
-
 const TOP_K_CHUNKS = 5;
 
 export async function POST(request: NextRequest) {
@@ -41,12 +40,9 @@ export async function POST(request: NextRequest) {
     const completion = await openai.chat.completions.create({
       model: CHAT_MODEL,
       messages: [
-        { role: "system", content: SIGGY_PROMPT },
-        { role: "system", content: "Relevant knowledge:\n" + context },
-        { role: "system", content: "Always speak like a cosmic wizard-cat explaining advanced technology." },
+        { role: "system", content: systemContent }, // ✅ was SIGGY_PROMPT (undefined)
         { role: "user", content: message }
       ],
-
       max_tokens: 1024,
       temperature: 0.7,
     });
