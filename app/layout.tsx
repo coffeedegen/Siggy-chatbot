@@ -12,7 +12,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Siggy – The Celestial Architect",
+  title: "Siggy – The Wise",
   description: "Chat with Siggy about the Ritual Network",
 };
 
