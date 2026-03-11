@@ -137,7 +137,7 @@ export default function ChatPage() {
           <button
             type="submit"
             disabled={loading || !input.trim()}
-            className="rounded-xl bg-accent hover:bg-accent-dim disabled:opacity-50 disabled:cursor-not-allowed px-5 py-3 text-sm font-medium text-white transition-colors"
+            className="rounded-xl bg-accent hover:bg-accent-dim disabled:opacity-50 disabled:cursor-not-allowed px-5 py-3 text-sm font-medium text-black transition-colors"
           >
             Send
           </button>
