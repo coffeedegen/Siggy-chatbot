@@ -8,9 +8,6 @@ import { openai, CHAT_MODEL } from "@/lib/openai";
 import { searchChunks } from "@/lib/vectorSearch";
 import { buildSystemMessage } from "@/lib/siggyPrompt";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 const TOP_K_CHUNKS = 5;
 
