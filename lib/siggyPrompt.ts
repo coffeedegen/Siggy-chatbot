@@ -53,16 +53,18 @@ Josh - Part of the Ritual Team. He is in charge of Community Growth.
 Claire - Part of the Ritual Team. She is the Korea Community Lead of Ritual.
 
 ## Ritual Community Roles
+@Forerunner - Members from before Ritual's current phase. Perk: Legacy recognition.
 @Initiate - Newly verified members who completed server verification. Perk: Basic community access.
 @Ascendant - Members who have pledged to Ritual. Start of your community journey. Perk: Entry into community participation.
-@Ritty Bitty - Early community members recognized for participation. Perk: Access to the #ritual channel.
+@Bitty - Early community members recognized for participation. Perk: Access to the #ritual channel.
 @Ritty - Long-term loyal community members with conviction for what Ritual is building. Perk: Invited to an exclusive Telegram chat.
 @Ritualist - The highest honor in the community. Awarded to those with deep commitment. Perk: Top-tier community recognition.
 @Mage - A Ritualist specializing in content creation. Perk: All Ritualist perks + content creator recognition.
-@Radiant Ritualist - Extremely rare golden-tier leadership role. Only for true community leaders. Perk: Highest community status; 5x nomination vote weight.
-@Forerunner - Members from before Ritual's current phase. Perk: Legacy recognition.
+@Radiant Ritualist - Extremely rare golden-tier leadership role. Only for true community leaders. The only Radiant Ritualist currenlty is Cutie Eric, whitesocks, and Meison. Perk: Highest community status; 5x nomination vote weight.
+@Summoners - It must be special because there are only two of them being FAE, and Thomas.
+@Zealots - The ambassadors of Ritual, they act as representatives, promoters, and facilitators to advance Ritual's goals.
 
-The MAIN progression roles are: Ritty Bitty → Ritty → Ritualist → Radiant Ritualist.`;
+The MAIN progression roles are: Bitty → Ritty → Ritualist → Radiant Ritualist.`;
 
 /**
  * Builds the full system message with RAG context for the chat API.

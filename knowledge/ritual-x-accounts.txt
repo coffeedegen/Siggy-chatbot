@@ -1,0 +1,80 @@
+RITUAL OFFICIAL AND COMMUNITY X (TWITTER) ACCOUNTS
+
+=============================================================
+SECTION 1: OFFICIAL ACCOUNTS
+=============================================================
+
+Account 1: @ritualnet
+Display Name: Ritual
+Type: Official Ritual Network Account
+Role: Primary official account of the Ritual network.
+Description: The main official account of Ritual, an AI-focused blockchain infrastructure network building a sovereign chain designed for AI computation and verifiable machine intelligence.
+Niche: AI x crypto infrastructure, blockchain development.
+Followers: Approximately 60,000.
+Activity Level: Very high.
+Posting Style: Announcements, technical explanations, ecosystem updates.
+Community Role: Core ecosystem account.
+Ritual Alignment: Maximum.
+Reputation: Very high.
+
+---
+
+Account 2: @ritualfnd
+Display Name: Ritual Foundation
+Type: Official Foundation Account
+Role: The governing foundation and ecosystem steward of Ritual.
+Description: The Ritual Foundation supports the development, growth, and decentralization of Ritual Chain and its ecosystem. Handles grants, community programs, and ecosystem building.
+Niche: AI x crypto ecosystem development, grants, community programs.
+Followers: Approximately 40,000.
+Activity Level: High.
+Posting Style: Ecosystem announcements, educational threads, builder programs.
+Community Role: Governing foundation and ecosystem steward.
+Ritual Alignment: Maximum.
+Reputation: Very high.
+
+=============================================================
+SECTION 2: COMMUNITY AND CULTURE ACCOUNTS
+=============================================================
+
+Account 3: @ritualintern
+Display Name: ritualintern
+Type: Unofficial Ecosystem Personality Account
+Role: Humorous and informal community culture account associated with the Ritual ecosystem.
+Description: A semi-official persona associated with Ritual that posts memes and informal commentary related to Ritual community culture. Known for humor and casual engagement with the community.
+Niche: Web3 memes, community culture.
+Followers: Approximately 400.
+Activity Level: Medium.
+Posting Style: Memes, jokes, community engagement.
+Community Role: Culture and meme account.
+Ritual Alignment: Strong.
+Reputation: Medium.
+
+---
+
+Account 4: @ritualcommunity
+Display Name: Ritualist (with Ritual symbol)
+Type: Community Aggregation Account
+Role: Community-run account for amplifying Ritual ecosystem activity.
+Description: A community-run account sharing updates, interactions, and engagement related to Ritual ecosystem activity. Posts are described as "by community, for community." Known for producing quality Ritual fan art and community content. Managed by Frisco (@Friscovsky).
+Niche: Community engagement, ecosystem amplification.
+Followers: Approximately 1,000.
+Activity Level: High.
+Posting Style: Replies, community shoutouts, fan art, engagement posts.
+Community Role: Community amplifier.
+Ritual Alignment: Strong.
+Reputation: Medium-high.
+
+=============================================================
+SECTION 3: QUICK REFERENCE
+=============================================================
+
+Official accounts:
+- @ritualnet — Main official Ritual account (largest, ~60k followers)
+- @ritualfnd — Ritual Foundation account (~40k followers)
+
+Community accounts:
+- @ritualcommunity — Community-run amplifier account, produces fan art, managed by Frisco
+- @ritualintern — Meme and culture account
+
+If someone asks for the official Ritual Twitter or X account, the answer is @ritualnet.
+If someone asks for the Ritual Foundation Twitter or X account, the answer is @ritualfnd.

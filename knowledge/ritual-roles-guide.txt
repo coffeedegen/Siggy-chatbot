@@ -1,60 +1,116 @@
 RITUAL COMMUNITY ROLES GUIDE
 
-The main community roles in Ritual are: Ritty Bitty, Ritty, Ritualist, and Radiant Ritualist.
+=============================================================
+SECTION 1: ROLE OVERVIEW
+=============================================================
 
-FULL ROLES LIST:
+Ritual uses a tiered role system reflecting commitment, longevity, and contribution.
+Roles are earned, not purchased.
 
-@Initiate - Newly verified members who have completed the server verification process. Perk: Welcome, basic community access.
+The main progression path is: Bitty → Ritty → Ritualist → Radiant Ritualist.
 
-@Ascendant - Members who have pledged to Ritual. This is the start of your community journey. Perk: Entry into community participation.
+=============================================================
+SECTION 2: FULL LIST OF ROLES
+=============================================================
 
-@Ritty Bitty - Early community members recognized for participation. On the right path, but with a long way to go. Perk: Access to the #ritual channel.
+@Forerunner
+Description: Members who were part of the Ritual community before its current phase.
+Perk: Legacy recognition.
 
-@Ritty - Long-term, loyal community members with conviction for what Ritual is building. Perk: Invited to an exclusive Telegram chat.
+@Initiate
+Description: Newly verified members who have completed the server verification process.
+Perk: Welcome, basic community access.
 
-@Ritualist - The highest honor in the community. Awarded to those who have authentically demonstrated deep commitment to the project. Perk: Top-tier community recognition.
+@Ascendant
+Description: Members who have pledged to Ritual. This is the start of your community journey.
+Perk: Entry into community participation.
 
-@Mage - A Ritualist with a specialization in content creation — art, writing, memes, and community growth. Perk: All Ritualist perks + content creator recognition.
+@Bitty
+Also known as: Ritty Bitty
+Description: Early community members recognized for participation. On the right path, but with a long way to go.
+Perk: Access to the #ritual channel.
 
-@Radiant Ritualist - An extremely rare, golden-tier leadership role. Only awarded to true community leaders. Perk: Highest community status; 5x nomination vote weight.
+@Ritty
+Description: Long-term, loyal community members with conviction for what Ritual is building.
+Perk: Invited to an exclusive Telegram chat.
 
-@Forerunner - Members who were part of the Ritual community before its current phase. Perk: Legacy recognition.
+@Ritualist
+Description: The highest honor in the community. Awarded to those who have authentically demonstrated deep commitment to the project.
+Perk: Top-tier community recognition.
+
+@Mage
+Description: A Ritualist with a specialization in content creation — art, writing, memes, and community growth.
+Perk: All Ritualist perks plus content creator recognition.
+
+@Radiant Ritualist
+Description: An extremely rare, golden-tier leadership role. Only awarded to true community leaders.
+Perk: Highest community status, 5x nomination vote weight.
+
+@Zealot
+Description: Zealots are official Ritual Ambassadors. They are passionate community members who act as official representatives, bridging the gap between developers and the wider audience to promote growth, education, and adoption.
+Perk: Ritual merchandise and judge roles during community events.
+
+@Summoner
+Description: An extremely rare and high-ranking role in the Ritual community. Very little public information is available about this role. Only two members are known to hold it: Thomas and FAE. Given how rare it is, it is considered one of the most prestigious roles in the ecosystem.
+Perk: Unknown, but presumed to carry significant community authority.
+
+=============================================================
+SECTION 3: HOW TO UPGRADE YOUR ROLE
+=============================================================
+
+Question: How do I become a Bitty, Ritty, or Ritualist?
+Answer: If you want to upgrade your role in the Ritual community, the best way is to consistently contribute and help the ecosystem grow.
+
+According to @coffeedegen, there are three main ways to contribute to Ritual:
 
 ---
 
-HOW TO UPGRADE YOUR ROLE (How to become Ritty Bitty, Ritty, or Ritualist)
+A. CONTRIBUTE BY EDUCATING OTHERS
 
-If you want to upgrade your role in the Ritual community, the best way is to consistently contribute and help the ecosystem grow.
-
-According to @coffeedegen, there are three main ways you can contribute to Ritual:
-
-A. Contribute by Educating Others
 Education is one of the most valuable ways to help the community because it makes Ritual easier to understand for both newcomers and existing members.
-Ways you can contribute include:
-1. Writing clear articles, explanations, and guides about Ritual's technology, ecosystem, and ideas.
-2. Creating beginner friendly tutorials that help new members understand how Ritual works step by step.
-3. Breaking down difficult terms and technical concepts into simple explanations.
-4. Summarizing AMAs, Twitter Spaces, and Ritual Academy sessions for people who were not able to attend.
-5. Answering questions from other members and helping clarify misunderstandings.
+
+Ways to contribute through education:
+1. Write clear articles, explanations, and guides about Ritual's technology, ecosystem, and ideas.
+2. Create beginner-friendly tutorials that help new members understand how Ritual works step by step.
+3. Break down difficult terms and technical concepts into simple explanations.
+4. Summarize AMAs, Twitter Spaces, and Ritual Academy sessions for people who were not able to attend.
+5. Answer questions from other members and help clarify misunderstandings.
+
 When you educate others, you help make Ritual more accessible and easier to learn.
 
-B. Contribute by Creating Content
+---
+
+B. CONTRIBUTE BY CREATING CONTENT
+
 Creative contributions help spread Ritual's identity and culture across the internet and make the community more engaging.
-You can contribute through content such as:
-1. Creating Siggy fan art, profile pictures, banners, GIFs, stickers, or other visual assets.
-2. Making Ritual themed memes that reference real community moments, inside jokes, or ecosystem concepts.
-3. Writing lore pieces, storytelling content, or creative posts that expand the Ritual universe.
-4. Sharing head canon ideas that add personality and imagination to the community narrative.
-5. Posting engaging social media content that highlights Ritual events, updates, and discussions.
+
+Ways to contribute through content creation:
+1. Create Siggy fan art, profile pictures, banners, GIFs, stickers, or other visual assets.
+2. Make Ritual-themed memes that reference real community moments, inside jokes, or ecosystem concepts.
+3. Write lore pieces, storytelling content, or creative posts that expand the Ritual universe.
+4. Share head canon ideas that add personality and imagination to the community narrative.
+5. Post engaging social media content that highlights Ritual events, updates, and discussions.
+
 Creative content helps Ritual reach more people while strengthening the community's identity.
 
-C. Contribute by Strengthening Ritual's Culture
-A strong culture is what turns a group of users into a real community.
-You can help strengthen Ritual's culture by:
-1. Helping newcomers patiently and respectfully when they ask questions.
-2. Participating in games, events, discussions, and activities hosted by the community.
-3. Encouraging positive conversations and constructive engagement in the server.
-4. Supporting community initiatives and collaborating with other members.
-5. Reporting scammers, spammers, or suspicious behavior to moderators to keep the community safe.
+---
 
-In short, consistent and meaningful contributions help you stand out and earn role upgrades. The more you educate, create, and support the community, the more you help Ritual grow.
+C. CONTRIBUTE BY STRENGTHENING RITUAL'S CULTURE
+
+A strong culture is what turns a group of users into a real community.
+
+Ways to strengthen Ritual's culture:
+1. Help newcomers patiently and respectfully when they ask questions.
+2. Participate in games, events, discussions, and activities hosted by the community.
+3. Encourage positive conversations and constructive engagement in the server.
+4. Support community initiatives and collaborate with other members.
+5. Report scammers, spammers, or suspicious behavior to moderators to keep the community safe.
+
+=============================================================
+SECTION 4: SUMMARY
+=============================================================
+
+To earn a role upgrade in Ritual, focus on consistent and meaningful contributions.
+The more you educate, create, and support the community, the more you help Ritual grow and the better your chances of being recognized and promoted.
+
+Role upgrades are not guaranteed by nominations alone. The final decision always rests with the Ritual team.
