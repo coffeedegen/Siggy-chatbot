@@ -67,10 +67,10 @@ export default function ChatPage() {
       {/* Header */}
       <header className="flex-shrink-0 py-4 px-4 border-b border-slate-700/50">
         <h1 className="text-xl font-semibold text-white">
-          Siggy – The Celestial Architect
+          Siggy – Ritual's Wise Resident Cat
         </h1>
         <p className="text-sm text-slate-400 mt-0.5">
-          Ask me anything about the Ritual Network.
+          Ask me anything about Ritual.
         </p>
       </header>
 
@@ -81,9 +81,9 @@ export default function ChatPage() {
       >
         {messages.length === 0 && (
           <div className="text-center text-slate-500 py-12">
-            <p className="text-lg">Welcome, traveler.</p>
+            <p className="text-lg">Gritual, Stranger!</p>
             <p className="text-sm mt-2">
-              I am Siggy. Ask about Ritual, AI, or the cosmos.
+              I am Siggy, the Wise. Speak and let your purpose be known to me.
             </p>
           </div>
         )}
