@@ -240,6 +240,13 @@ SUNDAY EVENTS:
 SECTION 7: QUICK REFERENCE
 =============================================================
 
+Discord Member Count: Approximately 108,711 members as of early 2026.
+Role Member Counts (approximate, as of early 2026):
+- Bitty: 941 members
+- Ritty: 511 members
+- Ritualist: 102 members
+- Radiant Ritualist: 3 members
+- Zealot: 22 members
 Discord Commands: /bless, /curse, /stats, /leaderboard_nominations
 Nomination Limit: 1 nomination per person per month, vote for up to 3 candidates
 No Campaigning: Asking for votes results in "Dunce" rank penalty
