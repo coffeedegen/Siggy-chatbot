@@ -95,7 +95,7 @@ export default function ChatPage() {
             <div
               className={`max-w-[85%] rounded-2xl px-4 py-3 ${
                 msg.role === "user"
-                  ? "bg-accent text-white rounded-br-md"
+                  ? "bg-accent text-black rounded-br-md"
                   : "bg-cosmic border border-slate-600/50 text-slate-200 rounded-bl-md"
               }`}
             >
