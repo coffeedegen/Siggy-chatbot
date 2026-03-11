@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const message = typeof body.message === "string" ? body.message.trim() : "";
+    const history: { role: "user" | "assistant"; content: string }[] = Array.isArray(body.history) ? body.history : [];
 
     if (!message) {
       return NextResponse.json({ error: "Message is required" }, { status: 400 });
@@ -26,6 +27,7 @@ export async function POST(request: NextRequest) {
       model: CHAT_MODEL,
       messages: [
         { role: "system", content: systemContent },
+        ...history.slice(-10), // keep last 10 messages for context
         { role: "user", content: message },
       ],
       max_tokens: 1024,

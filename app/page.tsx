@@ -112,7 +112,13 @@ export default function ChatPage() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed }),
+        body: JSON.stringify({
+          message: trimmed,
+          history: updatedMessages.slice(0, -1).map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
       });
 
       if (!res.ok) {
