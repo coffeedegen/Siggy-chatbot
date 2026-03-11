@@ -194,7 +194,7 @@ export default function ChatPage() {
     <>
       {/* Global styles injected */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
 
         @keyframes twinkle {
           0%, 100% { opacity: 0.1; transform: scale(1); }
@@ -233,8 +233,8 @@ export default function ChatPage() {
         .chat-scroll::-webkit-scrollbar-thumb { background: rgba(64,255,175,0.2); border-radius: 4px; }
         .chat-scroll { scrollbar-width: thin; scrollbar-color: rgba(64,255,175,0.2) transparent; }
 
-        .siggy-font { font-family: 'Instrument Serif', serif; }
-        .ui-font { font-family: 'Syne', sans-serif; }
+        .siggy-font { font-family: 'Crimson Pro', serif; }
+        .ui-font { font-family: 'Cinzel Decorative', serif; }
 
         .user-bubble {
           background: linear-gradient(135deg, #40FFAF 0%, #2EDEA0 100%);
@@ -332,7 +332,7 @@ export default function ChatPage() {
                   style={{ border: "1px solid rgba(64,255,175,0.4)" }}
                 />
               </div>
-              <span className="font-bold text-sm tracking-wide" style={{ color: "#40FFAF" }}>
+              <span className="font-bold text-base tracking-wide" style={{ color: "#40FFAF", fontFamily: "'Cinzel Decorative', serif", fontSize: "13px" }}>
                 Siggy, the Wise
               </span>
             </div>
@@ -348,12 +348,14 @@ export default function ChatPage() {
           {/* New Chat */}
           <button
             onClick={startNewChat}
-            className="new-chat-btn flex items-center justify-center gap-2 w-full py-2.5 rounded-xl transition-all font-semibold text-sm"
+            className="new-chat-btn flex items-center justify-center gap-2 w-full py-2.5 rounded-xl transition-all font-semibold"
             style={{
               background: "rgba(64,255,175,0.07)",
               border: "1px solid rgba(64,255,175,0.25)",
               color: "#40FFAF",
-              letterSpacing: "0.03em",
+              letterSpacing: "0.05em",
+              fontFamily: "'Cinzel Decorative', serif",
+              fontSize: "12px",
             }}
           >
             <span className="text-base leading-none">+</span>
@@ -366,7 +368,7 @@ export default function ChatPage() {
           {/* Chat History */}
           <div className="flex flex-col gap-0.5 flex-1 overflow-y-auto chat-scroll">
             <p className="text-xs font-semibold mb-2 px-1 tracking-widest uppercase"
-              style={{ color: "rgba(64,255,175,0.3)", fontSize: "9px" }}>
+              style={{ color: "rgba(64,255,175,0.3)", fontSize: "10px", fontFamily: "'Cinzel Decorative', serif" }}>
               Recent
             </p>
             {sessions.length === 0 && (
@@ -383,12 +385,14 @@ export default function ChatPage() {
               >
                 <button
                   onClick={() => loadSession(session)}
-                  className="flex-1 text-left text-xs px-3 py-2 truncate transition-colors"
+                  className="flex-1 text-left text-sm px-3 py-2 truncate transition-colors"
                   style={{
                     color: currentSessionId === session.id
                       ? "#40FFAF"
-                      : "rgba(255,255,255,0.45)",
+                      : "rgba(255,255,255,0.55)",
                     paddingLeft: currentSessionId === session.id ? "10px" : "12px",
+                    fontFamily: "'Crimson Pro', serif",
+                    fontSize: "14px",
                   }}
                 >
                   {session.title}
@@ -413,7 +417,7 @@ export default function ChatPage() {
           </div>
 
           {/* Footer */}
-          <div className="text-center" style={{ fontSize: "9px", color: "rgba(64,255,175,0.2)", letterSpacing: "0.15em" }}>
+          <div className="text-center" style={{ fontSize: "10px", color: "rgba(64,255,175,0.2)", letterSpacing: "0.15em", fontFamily: "'Cinzel Decorative', serif" }}>
             RITUAL NETWORK ✦ SIGGY
           </div>
         </aside>
@@ -564,10 +568,12 @@ export default function ChatPage() {
                     className="text-xs font-semibold mb-1.5 tracking-widest uppercase"
                     style={{
                       color: msg.role === "user"
-                        ? "rgba(0,0,0,0.45)"
-                        : "rgba(64,255,175,0.45)",
-                      fontSize: "9px",
-                      letterSpacing: "0.15em",
+                        ? "rgba(0,0,0,0.55)"
+                        : "rgba(64,255,175,0.7)",
+                      fontSize: "11px",
+                      letterSpacing: "0.2em",
+                      fontFamily: "'Cinzel Decorative', serif",
+                      fontWeight: 700,
                     }}
                   >
                     {msg.role === "user" ? "You" : "✦ Siggy"}
@@ -606,8 +612,8 @@ export default function ChatPage() {
                     style={{ border: "1px solid rgba(64,255,175,0.35)" }} />
                 </div>
                 <div className="siggy-bubble rounded-2xl rounded-bl-sm px-5 py-4">
-                  <p className="text-xs font-semibold mb-2 tracking-widest"
-                    style={{ color: "rgba(64,255,175,0.35)", fontSize: "9px", letterSpacing: "0.15em" }}>
+                  <p className="font-bold mb-2 tracking-widest"
+                    style={{ color: "rgba(64,255,175,0.6)", fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Cinzel Decorative', serif" }}>
                     ✦ SIGGY
                   </p>
                   <div className="flex gap-1.5 items-center">
