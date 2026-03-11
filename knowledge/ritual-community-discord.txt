@@ -1,7 +1,432 @@
-Ritual has a growing community of developers, researchers, and enthusiasts. The official Ritual documentation is available at docs.ritual.net and ritualfoundation.org/docs. Community members can join discussions, get support, and contribute to the ecosystem.
+RITUAL
 
-Ritual Foundation provides documentation including overviews, tutorials, and reference material. Key resources include the glossary for blockchain and Ritual-specific terms, architecture documentation for EVM++, Symphony, Resonance, execution sidecars, and Infernet, and tutorials for building on Ritual such as lending protocols, smart agents, automated prediction markets, and cross-chain yield aggregation.
+Community & Discord Knowledge Guide
 
-Ritual Portals are cross-chain bridges built on GMP protocols that enable secure access to Ritual's specialized compute capabilities from any blockchain. Portals handle message verification, state synchronization, and result delivery. Chain abstraction enables seamless interaction between different blockchain networks while maintaining security and consistency. High-performance chains that require a prover network, Rollup-as-a-Service offerings that need efficient execution of heterogeneous compute, and projects monetizing IP via a verifiable marketplace can all use Ritual.
+Roles, Events, Nominations & Community Systems
 
-The totality of the Ritual vision is infrastructure for a world where powerful technologies are accessible, interoperable, and trustworthy by default. Built with Mintlify. For the latest updates and community links, refer to the official Ritual channels and documentation index.
+1. People
+
+1.1 Founding Team
+
+The core members driving the Ritual ecosystem:
+
+  -----------------------------------------------------------------------
+  Name                                Role
+  ----------------------------------- -----------------------------------
+  Niraj                               Founding Team
+
+  Akilesh                             Founding Team
+
+  Saneel                              Founding Team
+
+  Anish                               Founding Team
+
+  Wally                               Founding Team
+
+  Arshan                              Founding Team
+
+  Eva                                 Founding Team
+
+  Josh                                Founding Team
+
+  Val                                 Founding Team
+
+  Elif                                Founding Team
+  -----------------------------------------------------------------------
+
+1.2 Moderators
+
+The Discord moderation team maintains community order, enforces rules,
+and supports engagement:
+
+  -----------------------------------------------------------------------
+  Moderator
+  -----------------------------------------------------------------------
+  Jez
+
+  Dunken
+
+  Stefan
+
+  Flash
+
+  Majorproject
+  -----------------------------------------------------------------------
+
+1.3 Event Managers
+
+Community events are organized and hosted by:
+
+  -----------------------------------------------------------------------
+  Event Manager
+  -----------------------------------------------------------------------
+  Kash
+
+  Hinata
+  -----------------------------------------------------------------------
+
+2. Community Roles
+
+Ritual uses a tiered role system reflecting commitment, longevity, and
+contribution. Roles are earned — not purchased.
+
+  ------------------------------------------------------------------------
+  Role            Description                        Perks
+  --------------- ---------------------------------- ---------------------
+  @Initiate       Newly verified members who have    Welcome — basic
+                  completed the server verification  community access
+                  process.                           
+
+  @Ascendant      Members who have pledged to        Entry into community
+                  Ritual. This is the start of your  participation
+                  community journey.                 
+
+  @Ritty Bitty    Early community members recognized Access to the #ritual
+                  for participation. On the right    channel
+                  path, but with a long way to go.   
+
+  @Ritty          Long-term, loyal community members Invited to an
+                  with conviction for what Ritual is exclusive Telegram
+                  building.                          chat
+
+  @Ritualist      The highest honor in the           Top-tier community
+                  community. Awarded to those who    recognition
+                  have authentically demonstrated    
+                  deep commitment to the project.    
+
+  @Mage           A Ritualist with a specialization  All Ritualist perks +
+                  in content creation — art,         content creator
+                  writing, memes, and community      recognition
+                  growth.                            
+
+  @Radiant        An extremely rare, golden-tier     Highest community
+  Ritualist       leadership role. Only awarded to   status; 5x nomination
+                  true community leaders.            vote weight
+
+  @Forerunner     Members who were part of the       Legacy recognition
+                  Ritual community before its        
+                  current phase.                     
+  ------------------------------------------------------------------------
+
+3. Blessings & Curses System
+
+Ritual Discord includes a gamified reputation mechanic built around
+community magic. The guiding principle:
+
+  "To bless is to curse, to curse is to bless — embrace the Ritual, for
+  fate is woven in both."
+
+Both blessings and curses are positive participation signals. Using
+either contributes to your community standing.
+
+  -----------------------------------------------------------------------
+  Command         Action
+  --------------- -------------------------------------------------------
+  /bless          Give a blessing to another community member
+
+  /curse          Give a curse to another community member
+
+  /stats          View your personal community statistics
+  -----------------------------------------------------------------------
+
+4. Notification Roles
+
+Members can opt into specific notification categories via the Server
+Guide. Subscribe only to what's relevant to you:
+
+  -----------------------------------------------------------------------
+  Role            What You Receive
+  --------------- -------------------------------------------------------
+  @Events         Notifications for IRL and online community building
+                  events
+
+  @Workshops      Notifications for IRL and online developer workshop
+                  events
+
+  @Official       Official announcements from Ritual Foundation, Ritual
+                  Labs, and project leaders
+
+  @DevUpdates     Updates relevant to the developer community and
+                  ecosystem
+
+  @Community      General updates for the broader Ritual community
+  -----------------------------------------------------------------------
+
+5. Nomination System
+
+The nomination system is an automated, structured process for community
+members to recognize and elevate peers. Higher-ranked members "pull up"
+those below them. Final promotion decisions always rest with the Ritual
+team.
+
+5.1 Key Rules
+
+-   You may nominate one person per month.
+
+-   You may vote for up to three candidates per month. Your own
+    nomination automatically counts as one of your votes.
+
+-   Nominations can be kept private (anonymity is supported).
+
+-   Campaigning for votes is strictly forbidden — violations result in
+    the "Dunce" rank penalty.
+
+-   A successful nomination is a signal for team review — it does not
+    guarantee promotion.
+
+5.2 Nomination Hierarchy
+
+The system follows a strict rank-based hierarchy governing who can
+nominate whom and with what voting weight:
+
+  -----------------------------------------------------------------------
+  Your Rank               Who You Can Nominate    Vote Weight
+  ----------------------- ----------------------- -----------------------
+  Radiant Ritualist       Ritualist, Ritty, or    5x
+                          Ritty Bitty             
+
+  Ritualist               Ritty or Ritty Bitty    2x
+
+  Ritty                   Ritty Bitty only        1x
+  -----------------------------------------------------------------------
+
+5.3 How to Participate
+
+  -----------------------------------------------------------------------
+  Action                     Where to Go
+  -------------------------- --------------------------------------------
+  Submit a nomination        Go to the #nominations channel
+
+  Check current standings    Use /leaderboard_nominations in the #rank
+                             channel
+  -----------------------------------------------------------------------
+
+6. Weekly Events Schedule
+
+Ritual runs a packed weekly event calendar with global and regional
+events across gaming, trivia, creative challenges, and developer
+sessions. All times are in UTC.
+
+6.1 Monday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  11:00 AM UTC    Brand Guessing Challenge
+
+  12:00 PM UTC    Guess the Crypto Coin Logo
+
+  1:00 PM UTC     Quztual and PFP Draw
+
+  2:00 PM UTC     Poker Rituals APAC
+
+  3:15 PM UTC     Kirka (Regional — India)
+
+  4:00 PM UTC     Roblox
+
+  5:00 PM UTC     Ritual Draw & Game Night
+
+  6:00 PM UTC     Poxel (Regional — India)
+
+  7:00 PM UTC     Fireside (Regional — Naija)
+  -----------------------------------------------------------------------
+
+6.2 Tuesday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  10:00 AM UTC    Gimkit Chaos
+
+  11:00 AM UTC    Pure Madness
+
+  12:00 PM UTC    Movietime (Regional — Russia VC)
+
+  12:00 PM UTC    Ritual Quiz (Regional — Indian VC)
+
+  1:00 PM UTC     Geoguessr
+
+  2:00 PM UTC     Drawize
+
+  3:00 PM UTC     Stumble Guys (Regional — Indonesian VC)
+
+  3:00 PM UTC     Smashkarts (Regional — Indian VC)
+
+  5:00 PM UTC     Among Us with Dino
+
+  6:00 PM UTC     Quiz about Ritual Network
+
+  7:00 PM UTC     Movie Night (Regional — Naija VC)
+  -----------------------------------------------------------------------
+
+6.3 Wednesday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  10:00 AM UTC    Rebus Puzzle with Asuma
+
+  11:00 AM UTC    Lolbeans
+
+  12:00 PM UTC    Haxball Tournament
+
+  1:00 PM UTC     Health Session (Regional — Indonesian VC)
+
+  1:00 PM UTC     GK Quiz (Regional — Indian VC)
+
+  2:00 PM UTC     Ritual Puzzle
+
+  3:00 PM UTC     Rebuz Puzzle hosted by Linhlambo & Noire
+
+  4:00 PM UTC     Quiz (Regional — Indian VC)
+
+  4:00 PM UTC     MLBB Tournament (Regional — Indonesian VC)
+
+  5:00 PM UTC     Music Madness
+
+  6:00 PM UTC     Ritual Quiz
+
+  7:00 PM UTC     Codenames (Regional)
+  -----------------------------------------------------------------------
+
+6.4 Thursday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  9:00 AM UTC     CODM (Regional — Naija)
+
+  9:00 AM UTC     Geoguessr (Regional — Ukraine)
+
+  10:00 AM UTC    Battleship War
+
+  11:00 AM UTC    Ritual Rumble
+
+  12:00 PM UTC    Codenames
+
+  1:00 PM UTC     Karaoke (Regional — Indonesia)
+
+  1:00 PM UTC     Karaoke (Regional — Philippines)
+
+  1:00 PM UTC     Unfiltered Night (Regional — India)
+
+  1:00 PM UTC     Guess the Animal (Regional — India)
+
+  2:00 PM UTC     The Ultimate Test
+
+  3:00 PM UTC     Smashkarts
+
+  4:00 PM UTC     The Solid Team Up
+
+  5:00 PM UTC     Weekly DevRel Office Hours
+
+  5:30 PM UTC     Dota 2 (Regional — Russia)
+  -----------------------------------------------------------------------
+
+6.5 Friday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  9:00 AM UTC     Guess the Ritualist
+
+  10:00 AM UTC    Kirka (Regional — Ukraine)
+
+  11:00 AM UTC    Guess the Object
+
+  12:30 PM UTC    Ritual Karaoke
+
+  2:00 PM UTC     PFP Draw + Games
+
+  3:00 PM UTC     Stumble Guys
+
+  4:00 PM UTC     Skribble with Hinata
+
+  5:00 PM UTC     Scavenger Hunt
+
+  6:00 PM UTC     GeoGuessr
+
+  7:00 PM UTC     Bunkeronline (Regional — Russia)
+
+  7:00 PM UTC     Movie Night (Regional — Ukraine)
+  -----------------------------------------------------------------------
+
+6.6 Saturday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  10:00 AM UTC    Word Unscramble Challenge
+
+  11:00 AM UTC    Ritual Workshop: Mastering 3D CGI Animation in Blender
+
+  12:00 PM UTC    Ritual Tech 101
+
+  2:00 PM UTC     Minury Talks
+
+  3:00 PM UTC     Smashkarts (Regional — Ukraine)
+
+  3:00 PM UTC     Roblox (Regional — Indonesia)
+
+  3:00 PM UTC     Puzzle (Regional — India)
+
+  5:00 PM UTC     Stumble Guys
+
+  6:00 PM UTC     Draw & Games Night with NA2RA
+
+  7:00 PM UTC     Karaoke (Regional — Naija)
+
+  7:00 PM UTC     Movie Night (Regional — Russia)
+  -----------------------------------------------------------------------
+
+6.7 Sunday
+
+  -----------------------------------------------------------------------
+  Time (UTC)      Event
+  --------------- -------------------------------------------------------
+  10:00 AM UTC    Rocket Bot Royale
+
+  11:00 AM UTC    Ritual Maths Quiz
+
+  12:00 PM UTC    Geoguessr (Regional — India)
+
+  1:00 PM UTC     Chess
+
+  2:15 PM UTC     Ritual Haxball
+
+  3:00 PM UTC     Among Us
+
+  4:00 PM UTC     Ritual Cooking Show
+
+  5:04 PM UTC     Jigsaw Puzzle
+
+  6:00 PM UTC     Movie Night: The Ritual Edition
+
+  7:05 PM UTC     Riddle (Regional)
+  -----------------------------------------------------------------------
+
+Quick Reference
+
+  -----------------------------------------------------------------------
+  Topic                  Key Info
+  ---------------------- ------------------------------------------------
+  Discord Commands       /bless, /curse, /stats, /leaderboard_nominations
+
+  Nomination Limit       1 nomination per person per month; vote for up
+                         to 3 candidates
+
+  No Campaigning         Asking for votes results in "Dunce" rank penalty
+
+  Highest Role           Radiant Ritualist (5x vote weight, extremely
+                         rare)
+
+  Event Managers         Kash, Hinata
+
+  Moderators             Jez, Dunken, Stefan, Flash, Majorproject
+
+  DevRel Office Hours    Every Thursday at 5:00 PM UTC
+
+  Nominations Channel    #nominations
+
+  Rankings Channel       #rank (use /leaderboard_nominations)
+  -----------------------------------------------------------------------

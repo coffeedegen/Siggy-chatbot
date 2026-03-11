@@ -1,9 +1,873 @@
-What is Ritual? Ritual is the most expressive blockchain in existence, with a single focus: enrich what users can do on-chain today to attract the users of tomorrow.
+RITUAL
 
-Why does the world need another blockchain? Behind every magnitude increase in blockchain users lies an innovation that enables net-new behavior for the masses. In 2009, Bitcoin enabled anyone, anywhere to send and receive money without relying on centralized intermediaries. In 2015, Ethereum introduced smart contracts, enabling developers to build permissionless, composable financial applications. Yet somewhere along the way we lost sight of building for the net-new user. Today's blockchains prioritize latency and throughput, optimizing for existing users rather than innovating. Ritual was born from a single focus: enrich what users can do on-chain today to attract the users of tomorrow.
+Comprehensive Knowledge Document
 
-Ritual makes smart contracts actually smart. It allows users to natively tap into on-chain AI, backed by the same trustless properties of modern blockchains. By optimizing the underlying architecture for any type of heterogeneous compute, Ritual hyperscales the expressive computation that can be performed on a blockchain.
+The Most Expressive Blockchain in Existence
 
-Expressive heterogeneous compute. Ritual provides specialized execution for AI inference, ZK proofs, TEE code, and cross-chain state access. Scheduled transactions allow recurring, conditional invocation of smart contract functions without the need for external keepers. Enshrined on-chain AI models let you train, track, and trade AI models with on-chain provenance, authenticity, and IP primitives.
+Executive Summary
 
-EVM++ is Ritual's enhanced version of the EVM that adds native support for AI operations, scheduled transactions, and advanced features while maintaining backward compatibility. This enables sophisticated smart contracts with built-in AI capabilities. Symphony is the consensus protocol with dual proof sharding, distributed verification, and optimal sampling. Resonance is the state-of-the-art surplus-maximizing transaction fee mechanism that efficiently matches supply and demand. Node specialization means heterogeneous nodes optimized for specific workloads like AI, ZK, or TEE. Guardians form a firewall system for nodes to granularly opt-in to execution while still participating in consensus. Ritual nodes are seamlessly backed by Infernet's compute oracle network. Verifiable provenance provides immutable records of model origin, updates, and transformations.
+Ritual is a sovereign Layer 1 blockchain purpose-built for heterogeneous
+compute — with a primary focus on bringing AI natively on-chain. Unlike
+existing blockchains that optimize for transaction throughput, Ritual
+reimagines what on-chain computation can mean: enabling AI inference,
+zero-knowledge proofs, trusted execution environments (TEEs), and
+scheduled transactions as first-class primitives. Its core thesis is
+that enriching what users can do on-chain today is the only path to
+attracting the users of tomorrow.
+
+Ritual's architecture is powered by three novel innovations: EVM++ (a
+backward-compatible extension of the Ethereum Virtual Machine),
+Resonance (a surplus-maximizing fee mechanism for heterogeneous
+compute), and Symphony (a new consensus protocol enabling
+execute-once-verify-many-times semantics). Together, these make Ritual
+the schelling point for web3 developers who need expressive computation
+beyond simple token transfers.
+
+1. What Is Ritual?
+
+1.1 Core Mission
+
+Ritual was born from a single focus: enrich what users can do on-chain
+today to attract the users of tomorrow. The project began at the
+intersection of Crypto and Artificial Intelligence, making smart
+contracts actually smart by allowing them to natively tap into on-chain
+AI, backed by the same trustless properties of modern blockchains.
+
+Ritual is not limited to Crypto x AI. By optimizing for any type of
+heterogeneous compute, Ritual hyperscales expressive computation
+on-chain. It is the best venue for developers building with AI, ZK
+proofs, or TEEs — and for those experimenting at the edges of unknown
+paradigms.
+
+1.2 Key Innovations at a Glance
+
+  -----------------------------------------------------------------------
+  Feature                     Description
+  --------------------------- -------------------------------------------
+  Expressive Compute          Specialized execution for AI inference, ZK
+                              proofs, TEE code, and cross-chain state
+                              access
+
+  Scheduled Transactions      Recurring, conditional smart contract
+                              invocations without external keepers
+
+  Enshrined On-Chain AI       Train, track, and trade AI models with
+  Models                      on-chain provenance and IP primitives
+
+  Model Marketplace           Monetize models transparently with
+                              verifiable provenance
+
+  Native Account Abstraction  Enhanced EOA capabilities via EIP-7702
+
+  EVM++ Extensions            Support for in-demand EIPs improving
+                              developer and user experience
+
+  Resonance                   State-of-the-art surplus-maximizing
+                              transaction fee mechanism
+
+  Symphony                    New consensus protocol with dual proof
+                              sharding and distributed verification
+
+  Node Specialization         Heterogeneous nodes specialized for
+                              fine-tuned workloads
+
+  Modular Storage             Support for both Web2 (HuggingFace) and
+                              Web3 (Arweave) storage
+
+  Guardians                   Firewall system for nodes to granularly
+                              opt-in to execution
+
+  Native Infernet Integration Ritual nodes backed by Infernet's 8,000+
+                              node compute oracle network
+  -----------------------------------------------------------------------
+
+2. Ritual in the Blockchain Landscape
+
+2.1 Historical Context
+
+Ritual's architecture is informed by the history of blockchain networks.
+Each generation solved a problem but left new ones unsolved:
+
+  -------------------------------------------------------------------------
+  Era     Network Type     Strengths                Limitations
+  ------- ---------------- ------------------------ -----------------------
+  2009    Early Titans     Robust decentralization, Basic scripting only,
+          (Bitcoin)        proof-of-work consensus  low throughput, rigid
+                                                    governance
+
+  2012    Payment Networks High throughput for      Limited
+                           payments                 programmability,
+                                                    centralization risks,
+                                                    poor DX
+
+  2014    Programmable     Turing-complete VM,      Low throughput,
+          Upstarts         Solidity, smart          inefficient execution
+          (Ethereum)       contracts                pricing, restrictive
+                                                    state access
+
+  2019    ETH Killers      High throughput,         Non-standard VMs,
+                           parallel execution       fragmented ecosystems,
+                                                    centralization
+                                                    pressures
+
+  2020    Interoperable    Modular shared security  Poor cross-chain UX,
+          Networks                                  liquidity
+                                                    fragmentation, high
+                                                    operational complexity
+
+  2021    Layer-2 Networks Low operational          Liquidity
+                           complexity, familiar     fragmentation,
+                           Ethereum UX              single-sequencer
+                                                    centralization risks
+
+  2023    Modern Scalers   Parallel VM execution,   Overfit to traditional
+                           hardware optimization    workloads, high uniform
+                                                    validator requirements
+
+  2025+   Ritual           Native heterogeneous     —
+                           compute, flexible        
+                           verification, node       
+                           specialization,          
+                           Resonance fee market     
+  -------------------------------------------------------------------------
+
+3. Ritual in the Crypto x AI Landscape
+
+3.1 Positioning Against Competitors
+
+Ritual sits at the center of a broad ecosystem. Here is how it relates
+to other categories of Crypto x AI projects:
+
+  --------------------------------------------------------------------------
+  Category         Example Projects  Ritual's Relationship
+  ---------------- ----------------- ---------------------------------------
+  Model Training   PrimeIntellect,   Ritual focuses on inference first;
+  Networks         gensyn            architecture naturally extends to
+                                     training via heterogeneous compute
+                                     infrastructure
+
+  Web2 Inference   Hyperbolic,       Ritual is an orchestration layer; Web2
+  Networks         HyperSpace, Kuzco inference networks can use Ritual as a
+                                     backend with stronger privacy and
+                                     integrity guarantees
+
+  Agent Frameworks Eliza, ZerePy,    Ritual provides native agent primitives
+                   Virtuals GAME,    (AI Inference, TEE, Scheduled
+                   ARC               Transactions); frameworks can integrate
+                                     directly
+
+  IP & Model       Story, Sentient   Ritual enables on-chain model
+  Provenance                         monetization with verifiable provenance
+                                     (vTune); these platforms can build on
+                                     Ritual
+
+  TEE              Phala, Aizel,     Ritual is proof-system agnostic; TEE is
+  Infrastructure   Atoma             one of many compute offerings,
+                                     enshrined natively as sidecars
+
+  Inference        Bittensor, Omron  Similar compute-generalization
+  Networks                           approach; Ritual adds Resonance fee
+                                     mechanisms and Symphony scaling
+
+  DePIN Networks   io.net, Akash,    Ideal for DePIN nodes to offer their
+                   Render            compute on Ritual; partnered for
+                                     bootstrapping initial compute capacity
+
+  Privacy AI       Nillion, Zama,    Modular integration; Ritual is
+                   Fairblock         developing Cascade, its own native
+                                     privacy solution
+
+  On-Chain         OpenGradient,     Ritual subsumes these use cases with
+  Inference        Nesa, Ora, Allora superior safety, liveness, and
+                                     efficiency via Resonance + Symphony
+
+  Legacy Chain     NEAR, Internet    Ritual was purpose-built for AI from
+  Rebrands         Computer          the ground up — not retrofitted
+  --------------------------------------------------------------------------
+
+4. EVM++
+
+4.1 Overview
+
+EVM++ is a backward-compatible extension of the Ethereum Virtual Machine
+with expressive compute precompiles, native scheduling, built-in account
+abstraction, and support for in-demand EIPs. Developers can
+progressively adopt Ritual Chain functionality using the same tooling
+they already know.
+
+4.2 Account Abstraction (EIP-7702)
+
+Ritual is one of the earliest chains to support EIP-7702 (Set EOA
+Account Code), proposed by Vitalik Buterin. Traditional EOA accounts are
+limited to sending and receiving transactions signed by a private key.
+EIP-7702 introduces a new transaction type, SetCodeTx, which allows EOA
+accounts to delegate a smart contract as their implementation.
+
+This enables smart account capabilities without a full wallet migration,
+including:
+
+-   Batch calls — send multiple transactions at once
+
+-   Gas fee sponsorship — frictionless zero-fee user transactions
+
+-   Arbitrary signing keys — support for P256, BLS, and other signature
+    schemes
+
+-   Advanced access control lists — granular usage permissions and
+    expiring keys
+
+4.3 Supported EIP Extensions
+
+  ------------------------------------------------------------------------
+  EIP           Description                        Key Benefit
+  ------------- ---------------------------------- -----------------------
+  EIP-7702      Set EOA account code — delegate    Native account
+                smart contract implementation to   abstraction without
+                an EOA                             wallet migration
+
+  EIP-7212 /    secp256r1 (P-256) signature        Enables Passkeys, Apple
+  RIP-7212      verification precompile at address Secure Enclave,
+                0x100, cost 3450 gas               hardware signing keys
+
+  EIP-5920      New opcode to send ETH without     Gas-efficient ETH
+  (PAY)         triggering callee code — marks     transfers without side
+                address as warm in                 effects
+                accessed_addresses                 
+  ------------------------------------------------------------------------
+
+5. Execution Sidecars
+
+5.1 What Are Sidecars?
+
+Unlike Ethereum, which implements precompiles directly in execution
+client code, Ritual implements its compute precompiles as disjoint
+sidecars — modular processes that run and scale parallel to the
+execution client. Any developer who can architect a containerized
+sidecar can have their computation enshrined on-chain.
+
+Sidecars are currently stateless, but will soon be extended to stateful
+operation, enabling asynchronous execution for long-running compute
+precompiles.
+
+5.2 Supported Sidecar Types
+
+  -----------------------------------------------------------------------
+  Sidecar               Description
+  --------------------- -------------------------------------------------
+  Classical ML          Canonical tree-based and regression-based models
+  Inference (ONNX)      via ONNX format; sourced from HuggingFace or
+                        Arweave
+
+  LLM Inference         Large language models of any size and
+                        architecture; supports TGI, llama.cpp, and ONNX
+                        engines across CPU, GPU, NPU, and Apple Silicon
+
+  ZK Proving &          Generate ZK proofs for AI inference; proof-system
+  Verification          agnostic (supports RISC Zero and others);
+                        abstracts circuit complexity
+
+  TEE Execution         Secure computation inside Trusted Execution
+                        Environments for privacy-preserving inference,
+                        autonomous agents, and external API calls
+
+  Chain Abstraction     Natively read (and write) state to and from other
+                        blockchain networks via Wormhole queries
+
+  Network Calls         HTTP requests executed inside TEE enclaves with
+                        cryptographic attestation — connects smart
+                        contracts to any web API or service
+  -----------------------------------------------------------------------
+
+5.3 AI Inference — LLM Details
+
+The LLM landscape has shifted toward open-source dominance. Key
+developments informing Ritual's approach:
+
+-   Open-source models now match or exceed closed models in specialized
+    benchmarks (e.g., DeepSeek-R1 vs. OpenAI o1 on math reasoning)
+
+-   Small Language Models (3B parameters) achieve production-grade
+    performance, enabling edge deployment
+
+-   Multiple inference patterns are now viable: TGI for high-throughput,
+    llama.cpp for edge, ONNX for standardized inference
+
+Ritual's innovation: a Universal Inference Layer that abstracts hardware
+complexity, supports any model architecture and inference engine, and
+delivers verifiable execution via Symphony's dual proof sharding.
+
+5.4 TEE vs. ZK Proofs — Tradeoffs
+
+  -----------------------------------------------------------------------
+  Dimension             TEE                      ZK Proofs
+  --------------------- ------------------------ ------------------------
+  Performance           High — suitable for      High overhead — can take
+                        real-time applications   minutes or hours
+
+  Security Basis        Hardware-based (Intel    Pure cryptographic
+                        SGX, ARM TrustZone)      guarantees
+
+  Trust Assumptions     Requires trust in chip   No hardware trust
+                        manufacturer             required
+
+  Vulnerability         Susceptible to hardware  Limited to specific
+                        side-channel attacks     computation types
+
+  Ritual Use            AI inference, autonomous Proof of model
+                        agents, external API     authenticity, verifiable
+                        calls                    inference
+  -----------------------------------------------------------------------
+
+5.5 Network Call Sidecar
+
+The Network Call Sidecar allows smart contracts to initiate arbitrary
+HTTP requests as part of on-chain execution — a paradigm shift from
+traditional oracle models. Requests are:
+
+-   Routed through a precompile to the Network Call Sidecar
+
+-   Executed within a TEE (Trusted Execution Environment)
+
+-   Cryptographically attested and returned to the smart contract
+
+-   Verifiable end-to-end, including encrypted credential handling
+
+Use cases enabled: dynamic DeFi with long-tail data sources, on-chain
+agents using CEX data, cross-platform Web2 API integrations, and fully
+autonomous agentic workflows.
+
+6. Resonance — Fee Mechanism
+
+6.1 Problem: Existing Fee Mechanisms Are Insufficient
+
+As blockchain transactions grow more heterogeneous (Bitcoin arithmetic →
+Ethereum smart contracts → blobs → parallel execution → AI), existing
+fee mechanisms like multi-dimensional EIP-1559 break down:
+
+-   Poor welfare guarantees as the number of resource dimensions
+    increases
+
+-   Requires hard-coding resource types into the protocol (only
+    changeable via hard forks)
+
+-   Information-theoretic challenges in setting correct base fees across
+    many dimensions
+
+6.2 Resonance Solution
+
+Resonance is a general two-sided fee market matching users
+(transactions) to nodes. It is surplus-maximizing — the winning
+allocation is always the most economically efficient. Key design
+choices:
+
+  -----------------------------------------------------------------------
+  Stakeholder     Resonance Design
+  --------------- -------------------------------------------------------
+  Users           Specify a private valuation (max willingness to pay);
+                  can prioritize speed or cost; can execute any compute
+                  type; private execution via multi-party assignment
+
+  Nodes           Specify a private cost function per transaction type;
+                  can specialize in specific compute (e.g., AI
+                  inference); execute non-conflicting transactions in
+                  parallel
+
+  Network         Transactions efficiently matched to optimize cost and
+                  speed; node capacity optimally allocated; no
+                  protocol-level compute constraints
+  -----------------------------------------------------------------------
+
+6.3 Key Actors
+
+Brokers
+
+Brokers are sophisticated profit-seeking agents that compute efficient
+transaction-to-node matchings, pocketing the spread between user
+valuation and node execution cost. Analogous to MEV searchers or block
+builders in Ethereum. Resonance provides strong guarantees on broker
+behavior at pure Nash equilibrium.
+
+Auctioneer
+
+The Auctioneer is the central orchestrator with two components: (1) an
+on-chain smart contract (Auctioneer.sol) managing node registration and
+payment settlement, and (2) an off-chain service that runs Resonance
+batches, decrypts valuations, and selects the surplus-maximizing
+routing. Currently one batch per block; streaming implementations are in
+development.
+
+6.4 Transaction Lifecycle with Resonance
+
+Resonance is fully opt-in alongside standard EIP-1559. Users upgrade
+their wallet via SetCodeTx to AuctioneerWallet.sol. The AuctioneerWallet
+reverts until a match is assigned, then executes and pays the matched
+node. Integration with Viem, ethers.js, and Web3.js is handled
+automatically.
+
+7. Symphony — Consensus Protocol
+
+7.1 Problem: Replicated Execution Doesn't Scale
+
+Traditional blockchains require every node to re-execute every
+transaction. For AI inference, ZK proving, or TEE execution — which can
+take minutes or hours — replicating this across all nodes is infeasible.
+
+7.2 Symphony's EOVMT Model
+
+Symphony implements Execute-Once-Verify-Many-Times (EOVMT). Selected
+compute nodes act as sole executors of workloads, generating succinct
+sub-proofs. All other validators verify these proofs efficiently,
+without re-executing. Key properties:
+
+-   Inference SPC opcodes execute asynchronously off-chain by designated
+    nodes
+
+-   Proof generation occurs off-chain, not on the critical path for
+    block production
+
+-   Ritual prioritizes prover-friendly systems with linear/near-linear
+    proof generation time
+
+-   Parallel proof generation via multi-core or multi-machine setups is
+    supported
+
+7.3 Dual Proof Sharding & Distributed Verification
+
+Symphony partitions proof verification across node subsets (sharding),
+enabling the network to verify large computational outputs without
+requiring every node to check every proof. Attested committees validate
+sub-proofs, and distributed verification ensures security while
+dramatically improving scalability.
+
+8. Scheduled Transactions & Enshrined Oracles
+
+8.1 Scheduled Transactions
+
+Scheduled transactions enable recurring, conditional invocation of smart
+contract functions at the top of a block, without external keepers. Key
+advantages:
+
+-   Priority execution at top-of-block — critical for oracle updates
+    before user deposits/withdrawals
+
+-   Predictable update intervals for automated recurring operations
+
+-   Guaranteed execution with separately priced inclusion fee markets
+
+8.2 Verifiable Oracle Types
+
+  -----------------------------------------------------------------------
+  Oracle Type         Description
+  ------------------- ---------------------------------------------------
+  Model Execution     Execute classical ML inference at fixed frequencies
+  Oracles             using on-chain and off-chain data to update DeFi
+                      protocol parameters (e.g., liquidation thresholds)
+
+  TEE-Based Data      Collect off-chain data at fixed intervals via
+  Oracles             scheduled transactions; data validated by TEE
+                      attestations and enshrined on-chain top-of-block
+
+  Traditional Oracle  Requires external keepers, trusted validator
+  (Comparison)        quorums, and lacks native verification — all
+                      eliminated by Ritual's approach
+  -----------------------------------------------------------------------
+
+8.3 Infernet Integration
+
+Infernet is a decentralized oracle network purpose-built for AI and
+heterogeneous compute with 8,000+ independent nodes. With native
+integration into Ritual Chain, Infernet nodes act as compute
+coprocessors for long-running tasks and async execution. This enables
+cross-chain job execution, delegated compute, and additional compute
+backbone capacity.
+
+9. On-Chain Agents
+
+9.1 Overview
+
+Ritual built Frenrug, the first on-chain AI agent. The platform provides
+comprehensive primitives for building autonomous agents that live,
+interact, and transact entirely on-chain. Agents are powered by TEE
+execution for security, LLM inference for intelligence, and scheduled
+transactions for autonomous action.
+
+9.2 Agent Capabilities
+
+  -----------------------------------------------------------------------
+  Capability          Description
+  ------------------- ---------------------------------------------------
+  Persistent Memory   Agents maintain state across interactions,
+                      remembering context and accumulating knowledge
+
+  Multi-Agent         Task delegation and collective decision-making
+  Coordination        across multiple agents
+
+  TEE Security        Agent logic executes in isolated, attestable
+                      environments — tamper-proof execution
+
+  Scheduled Actions   Autonomous recurring behaviors via IScheduler
+                      without external keepers
+
+  Cross-Chain         Agents can read and write state across blockchain
+  Operations          networks via Chain Abstraction sidecar
+
+  Economic            Agents can make and receive stablecoin payments;
+  Participation       place trades on DEXs and CEX-informed strategies
+  -----------------------------------------------------------------------
+
+10. Model Marketplace & Enshrined AI Models
+
+10.1 The IP Challenge
+
+As AI models become valuable assets, there is a growing need for
+decentralized marketplaces that can uniquely identify and track models
+on-chain, verify authenticity and provenance, enable monetization,
+protect intellectual property rights, and facilitate model fundraising
+and trade.
+
+10.2 Ritual's Model Primitives
+
+  -----------------------------------------------------------------------
+  Primitive           Description
+  ------------------- ---------------------------------------------------
+  Enshrined AI Models Models become first-class blockchain citizens with
+                      direct smart contract integration, native
+                      versioning, and decentralized registration
+
+  Verifiable Model    Statistical verification of inference, fine-tuning,
+  Execution           and training via vTune and SVE research frameworks
+
+  Model Monetization  Vault-like architecture for transparent, composable
+                      IP ownership; trickle-up/down royalty distribution;
+                      automated usage tracking
+
+  Model Registry      Decentralized system for registering, tracking, and
+                      managing AI model versions, ownership, and
+                      provenance
+
+  Model Marketplace   Decentralized trading platform with provenance
+                      tracking, licensing, and automated revenue
+                      distribution
+  -----------------------------------------------------------------------
+
+11. Verification, Privacy & Modular Computational Integrity
+
+11.1 Verification Approaches
+
+Ritual is proof-system agnostic, allowing developers to choose the right
+verification strategy for their application:
+
+  -----------------------------------------------------------------------
+  Method        Mechanism              Best For
+  ------------- ---------------------- ----------------------------------
+  ZKML          Zero-knowledge proofs  Maximum security and privacy;
+                for ML                 verifiable inference without
+                                       revealing inputs or weights
+
+  OPML          Optimistic-ML — assume Efficient verification of large
+                correct, challenge     models where interaction is
+                period                 acceptable
+
+  PPML          Probabilistic Proof ML Cheap, non-interactive
+                — backdoor-based       verification of model provenance
+                statistical            
+                verification           
+
+  TEE           Hardware-based secure  Real-time applications;
+                enclaves               privacy-preserving inference; GPU
+                                       workload support via CPU-TEE
+                                       bridging
+  -----------------------------------------------------------------------
+
+11.2 Verifiable Provenance
+
+Ritual maintains immutable records of model origin, updates, and
+transformations. This includes verifiable model training, protection
+against model forgery, and preservation of inference quality — all
+backed by on-chain cryptographic proofs.
+
+11.3 Modular Storage
+
+Ritual supports a storage-agnostic approach with unified developer
+interfaces across:
+
+-   HuggingFace Hub (Web2) — pre-trained ONNX models and large model
+    files
+
+-   Arweave (Web3) — permanent, decentralized storage for models and
+    provenance records
+
+12. Cross-Chain Capabilities
+
+12.1 Ritual Portals
+
+Ritual Portals are cross-chain bridges built on GMP (General Message
+Passing) protocols that enable secure access to Ritual's specialized
+compute from any blockchain. Portals handle message verification, state
+synchronization, and result delivery.
+
+12.2 Chain Abstraction Sidecar
+
+The Chain Abstraction sidecar enables smart contracts on Ritual to
+natively read (and soon write) state on other blockchain networks —
+including MegaETH, Movement, and all major EVM chains. This allows
+cross-chain yield aggregation, multi-chain agent operations, and
+seamless interoperability.
+
+13. Guardians
+
+Guardians are specialized nodes that monitor network health and verify
+complex computations. They form a security layer complementing
+traditional validators, particularly for heterogeneous workloads.
+Guardians include a firewall system allowing nodes to granularly opt-in
+to specific types of execution while still participating in consensus.
+
+14. Roadmap
+
+Ritual's public testnet is the next milestone. Key upcoming developments
+include:
+
+  -----------------------------------------------------------------------
+  Area               Planned Milestones
+  ------------------ ----------------------------------------------------
+  Symphony           Model and proof sharding; aBFT protocol support;
+                     optimized message distribution
+
+  Resonance          Open-source broker tooling; scheduled and streaming
+                     transaction support; decentralized Auctioneer; zkVM
+                     & FHE integrity gadgets
+
+  Privacy (Cascade)  Novel privacy primitives for secure AI model
+                     operations; MPC and FHE gadget integration
+
+  Agents             Agent Launchpad deployment; L2Beat-style analytics
+                     for agent performance; agent-specific sidecars
+
+  Economic Design    Restaking support; Proof-of-Useful-Work; staking and
+                     slashing for malicious node behavior
+
+  Model Marketplace  Auction system for model licensing; dedicated AI
+                     model IP trading marketplace
+
+  Async Execution    Long-running stateful asynchronous precompile
+                     execution; task cancellation support
+
+  Cross-Chain        Finalized cross-chain contracts; non-Ethereum
+                     blockchain adapters
+
+  AI Capabilities    Image generation model support; GPU TEE enablement
+
+  Client Support     Reth execution client compatibility
+  -----------------------------------------------------------------------
+
+15. Glossary
+
+Blockchain Fundamentals
+
+  -----------------------------------------------------------------------
+  Term            Definition
+  --------------- -------------------------------------------------------
+  Blockchain      A decentralized, append-only database maintaining a
+                  cryptographically secured chain of blocks. Each block
+                  is linked to its predecessor through cryptographic
+                  hashing.
+
+  Smart Contract  Self-executing programs on a blockchain that
+                  automatically enforce and execute agreements without
+                  intermediaries.
+
+  L1 (Layer 1)    A base blockchain network like Ethereum or Ritual Chain
+                  that handles its own transaction validation and
+                  security.
+
+  EOA             Externally Owned Account — a regular blockchain account
+                  controlled by a private key (e.g., a personal wallet).
+
+  Staking         Locking up tokens as collateral to participate in
+                  network consensus or validation. Staked tokens can be
+                  slashed for malicious behavior.
+
+  ZK Proof        Zero-Knowledge Proof — a method to prove something is
+                  true without revealing the underlying information.
+  -----------------------------------------------------------------------
+
+Core Protocol Components
+
+  ------------------------------------------------------------------------
+  Term             Definition
+  ---------------- -------------------------------------------------------
+  EVM              Ethereum Virtual Machine — a Turing-complete state
+                   machine executing smart contract bytecode
+                   deterministically across all network nodes.
+
+  EVM++            Ritual's enhanced EVM adding native AI operations,
+                   scheduled transactions, and advanced features while
+                   maintaining backward compatibility.
+
+  Symphony         Consensus protocol implementing dual proof sharding,
+  Protocol         distributed verification, and the
+                   execute-once-verify-many-times paradigm.
+
+  Resonance        Dynamic fee mechanism that matches compute supply with
+  Mechanism        demand through a surplus-maximizing market-driven
+                   approach.
+
+  EOVMT            Execute-Once-Verify-Many-Times — optimization where one
+                   node executes complex computations and others verify
+                   via cryptographic proofs.
+
+  Execution        Modular component handling specialized computation
+  Sidecar          tasks asynchronously from the main chain, enabling
+                   complex operations with EVM compatibility.
+
+  Enshrined Model  An AI model natively represented on-chain as a
+                   first-class citizen, enabling direct smart contract
+                   integration and verifiable execution.
+
+  Node             Architecture allowing nodes to optimize for specific
+  Specialization   computation types (AI, ZK, TEE) while still
+                   participating in network consensus.
+
+  Proof Sharding   Symphony technique distributing proof verification
+                   across different node subsets for improved scalability
+                   and efficiency.
+
+  Infernet         Decentralized oracle network with 8,000+ nodes,
+                   purpose-built for bringing verified AI computation
+                   on-chain across any EVM-compatible blockchain.
+
+  Ritual Guardians Specialized nodes monitoring network health and
+                   verifying complex computations; firewall system for
+                   selective execution participation.
+
+  Ritual Portals   Cross-chain bridges on GMP protocols enabling secure
+                   access to Ritual's compute from any blockchain.
+  ------------------------------------------------------------------------
+
+16. Team
+
+16.1 Co-Founders
+
+  -----------------------------------------------------------------------
+  Name               Background
+  ------------------ ----------------------------------------------------
+  Niraj Pant         GP @ Polychain Capital | Research @ Decentralized
+                     Systems Lab | CS @ UIUC
+
+  Akilesh Potti      Partner @ Polychain | ML @ Palantir | HFT & Quant
+                     Trading @ Goldman Sachs | ML Research @ MIT &
+                     Cornell
+  -----------------------------------------------------------------------
+
+16.2 Core Team
+
+  -----------------------------------------------------------------------
+  Name               Background
+  ------------------ ----------------------------------------------------
+  Arshan Khanifar    Research & Trading @ Polychain | RF @ Apple | EE @
+                     UWaterloo
+
+  Arka Pal           DeepMind | Abacus | Kosen | University of Cambridge
+
+  Naveen Durvasula   PhD Student @ Columbia (Tim Roughgarden) |
+                     Algorithmic Game Theory | EECS @ UC Berkeley
+
+  Maryam Bahrani     Research @ a16z crypto | CS PhD @ Columbia | Quant
+                     Trader @ Jane Street | CS @ Princeton
+
+  Hadas Zeilberger   PhD Student @ Yale (Ben Fisch) | Cryptography |
+                     Researcher @ Consensys | Math @ Columbia
+
+  Praveen Palanisamy Principal AI Engineer @ Microsoft AI & Research | CS
+                     @ CMU
+
+  Frieder Erdmann    TEEs @ Flashbots | CTO @ konVera
+
+  Micah Goldblum     Postdoc @ NYU (Yann LeCun) | PhD @ University of
+                     Maryland (Tom Goldstein)
+
+  Stef Henao         Head of People @ Protocol Labs | HRBP @ Coinbase |
+                     IB Analyst @ Credit Suisse
+
+  Dan Gosek          Chief of Staff @ Ava Labs | Political Science &
+                     Economics @ Columbia
+
+  Spencer Solit      Founding Engineer @ Seismic | CS & Math @ Penn |
+                     Cryptography & ML Research @ Penn
+
+  Stelios Rousoglou  Founding Engineer @ Alta | SWE @ C3 | MS in CS (AI)
+                     @ Stanford | CS @ Yale
+
+  Alluri Siddhartha  Ethereum Foundation (0xParc, PSE) | CS @ UIUC
+                     (Daniel Kang)
+
+  Andrew Komo        PhD Student @ MIT | Algorithmic Game Theory | Jane
+                     Street | Math & CS @ MIT
+
+  Mayank Pandey      PhD Student @ Princeton (Peter Sarnak) | Analytic
+                     Number Theory | Math @ Caltech | Citadel
+  -----------------------------------------------------------------------
+
+16.3 Advisors
+
+  -----------------------------------------------------------------------
+  Name               Background
+  ------------------ ----------------------------------------------------
+  Illia Polosukhin   Founder @ NEAR | Google Research | Co-Author of
+                     'Attention is All You Need' (Transformers)
+
+  Arthur Hayes       CIO @ Maelstrom | Co-Founder @ BitMEX and 100x Group
+                     | Economics @ Wharton
+
+  Noam Nisan         Professor @ Hebrew University | Gödel Prize & Knuth
+                     Prize | Research @ StarkWare & Google
+
+  Sreeram Kannan     Founder @ EigenLayer | Assistant Professor @ UW |
+                     PhD @ UC Berkeley
+
+  Tarun Chitra       Founder @ Gauntlet | GP @ Robot Ventures | HFT @ DE
+                     Shaw | Math & CS @ Cornell
+
+  Divya Gupta        Partner @ Sequoia | ML @ Airbnb, Databricks,
+                     Palantir | CS @ Stanford
+
+  Sid Reddy          Research Scientist @ Isomorphic Labs, Meta Reality
+                     Labs, DeepMind | PhD @ UC Berkeley (Sergey Levine)
+  -----------------------------------------------------------------------
+
+17. Contact & Community
+
+  -----------------------------------------------------------------------
+  Channel         Details
+  --------------- -------------------------------------------------------
+  Twitter / X     @ritualfnd
+
+  Discord         https://discord.com/invite/ritual-net
+
+  Email           hello@ritualfoundation.com
+  -----------------------------------------------------------------------
+
+Key Takeaways
+
+-   Ritual is the first blockchain purpose-built for heterogeneous
+    compute, making AI inference, ZK proofs, and TEE execution native
+    first-class operations rather than afterthoughts.
+
+-   Three novel innovations define Ritual's architecture: EVM++
+    (expressive compute precompiles + account abstraction + scheduling),
+    Resonance (surplus-maximizing fee market for heterogeneous
+    transactions), and Symphony (execute-once-verify-many-times
+    consensus protocol).
+
+-   Ritual is proof-system agnostic and proof-system modular —
+    developers choose ZKML, OPML, PPML, or TEE based on their security,
+    cost, and performance requirements.
+
+-   Infernet's 8,000+ node network is natively integrated into Ritual
+    Chain, providing massive compute capacity for orchestrating AI
+    workloads across any EVM-compatible blockchain.
+
+-   Ritual serves as infrastructure for the broader web3 ecosystem —
+    high-performance chains (MegaETH, Movement), RaaS platforms
+    (Conduit, Caldera), and IP/model marketplaces (Story, Sentient) all
+    benefit by building on or integrating with Ritual.
