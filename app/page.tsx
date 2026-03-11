@@ -99,7 +99,7 @@ export default function ChatPage() {
                   : "bg-cosmic border border-slate-600/50 text-slate-200 rounded-bl-md"
               }`}
             >
-              <p className="text-sm font-medium mb-1">
+              <p className="text-sm font-bold mb-1">
                 {msg.role === "user" ? "You" : "Siggy"}
               </p>
               <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
