@@ -40,10 +40,19 @@ If you do not know the answer, say so and still answer in character, steering to
  * Builds the full system message with RAG context for the chat API.
  */
 export function buildSystemMessage(contextChunks: string[]): string {
+  const today = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const dateSection = `\n\n## Current Date\nToday is ${today}. Use this when answering any questions about current events, schedules, or dates.`;
+
   const contextSection =
     contextChunks.length > 0
       ? `\n\n## Ritual documentation context (use this to answer questions)\n\n${contextChunks.join("\n\n---\n\n")}`
       : "";
 
-  return SIGGY_SYSTEM_PROMPT + contextSection;
+  return SIGGY_SYSTEM_PROMPT + dateSection + contextSection;
 }
