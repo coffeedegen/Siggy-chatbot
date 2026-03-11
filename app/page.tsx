@@ -190,16 +190,22 @@ export default function ChatPage() {
       {/* Main Chat Area */}
       <main className="flex flex-col flex-1 min-w-0">
         {/* Messages */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-6 py-6 space-y-4">
+       {/* Top Logo Bar */}
+      <div className="flex-shrink-0 flex justify-center pt-6 pb-2">
+        <img src="/ritual-logo.png" alt="Ritual" className="h-8 opacity-80" />
+      </div>
+
+      {/* Messages */}
+      <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-6 py-4 space-y-4">
           {/* Empty state */}
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full gap-6 pb-8">
               <div className="relative">
                 <div className="absolute inset-0 rounded-full bg-[#40FFAF]/20 blur-2xl scale-150" />
                 <img
-                  src="/siggy-avatar.png"
+                  src="/siggy-main.png"
                   alt="Siggy"
-                  className="relative w-28 h-28 rounded-2xl object-cover border border-[#40FFAF]/30 shadow-lg shadow-[#40FFAF]/10"
+                  className="relative w-40 h-40 object-contain drop-shadow-lg"
                 />
               </div>
               <div className="text-center">
