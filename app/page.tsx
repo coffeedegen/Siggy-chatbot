@@ -93,7 +93,7 @@ export default function ChatPage() {
     className={`flex items-end gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
   >
     {msg.role === "assistant" && (
-      <img src="/siggy-avatar.png" alt="Siggy" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+    <img src="/siggy-avatar.png" alt="Siggy" className="w-10 h-10 rounded-full object-cover flex-shrink-0 overflow-hidden" />
     )}
     <div
       className={`max-w-[85%] rounded-2xl px-4 py-3 ${
@@ -108,7 +108,7 @@ export default function ChatPage() {
       <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
     </div>
     {msg.role === "user" && (
-      <img src="/user-avatar.png" alt="You" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+      <img src="/user-avatar.png" alt="You" className="w-10 h-10 rounded-full object-cover flex-shrink-0 overflow-hidden" />
     )}
   </div>
 ))}
