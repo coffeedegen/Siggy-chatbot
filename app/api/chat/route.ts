@@ -44,9 +44,12 @@ export async function POST(request: NextRequest) {
     const completion = await openai.chat.completions.create({
       model: CHAT_MODEL,
       messages: [
-        { role: "system", content: systemContent },
-        { role: "user", content: message },
-      ],
+        { role: "system", content: SIGGY_PROMPT },
+        { role: "system", content: "Relevant knowledge:\n" + context },
+        { role: "system", content: "Always speak like a cosmic wizard-cat explaining advanced technology." },
+        { role: "user", content: message }
+      ]
+
       max_tokens: 1024,
       temperature: 0.7,
     });

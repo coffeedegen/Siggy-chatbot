@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --void: #0a0a0f;
-  --cosmic: #1a1a2e;
-  --accent: #6366f1;
-  --accent-dim: #4f46e5;
+  --color-bg-primary: #18191A;        /* Main background */
+  --color-bg-secondary: #222324;      /* Slightly lighter for cards/panels */
+  --color-bg-elevated: #2C2D2F;       /* Input fields, hover states */
+  --color-accent: #40FFAF;            /* Primary accent — Send button, links, active states */
+  --color-accent-hover: #2EDEA0;      /* Slightly muted accent for hover */
+  --color-accent-glow: rgba(64, 255, 175, 0.15); /* Soft glow for focus rings */
+  --color-text-primary: #F0F0F0;      /* Main body text */
+  --color-text-secondary: #A0A2A5;    /* Timestamps, subtitles, placeholders */
+  --color-text-on-accent: #0D1F17;    /* Dark text rendered ON accent-colored elements */
+  --color-border: rgba(255,255,255,0.08); /* Subtle dividers and borders */
 }
 
 body {

@@ -1,4 +1,4 @@
-# Siggy – The Celestial Architect
+# Siggy – The Wise
 
 A production-ready AI chatbot that answers questions about the **Ritual Network** using Retrieval-Augmented Generation (RAG). Siggy is a void-black cat persona who believes Ritual is the technological embodiment of cosmic order.
 
