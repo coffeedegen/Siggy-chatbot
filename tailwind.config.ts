@@ -9,14 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: "#0a0a0f",
-        cosmic: "#1a1a2e",
-        accent: "#6366f1",
-        "accent-dim": "#4f46e5",
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "monospace"],
+        void: "var(--color-bg-primary)",
+        cosmic: "var(--color-bg-secondary)",
+        elevated: "var(--color-bg-elevated)",
+        accent: "var(--color-accent)",
+        "accent-dim": "var(--color-accent-hover)",
+        border: "var(--color-border)",
       },
     },
   },
