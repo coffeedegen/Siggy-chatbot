@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
         { role: "system", content: systemContent }, // ✅ was SIGGY_PROMPT (undefined)
         { role: "user", content: message }
       ],
-      max_tokens: 1024,
+      max_completion_tokens: 1024,
       temperature: 0.7,
     });
 
