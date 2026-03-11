@@ -37,8 +37,7 @@ export default function ChatPage() {
   }, []);
 
   useEffect(() => {
-    if (sessions.length > 0)
-      localStorage.setItem("siggy-sessions", JSON.stringify(sessions));
+    localStorage.setItem("siggy-sessions", JSON.stringify(sessions));
   }, [sessions]);
 
   useEffect(() => {
