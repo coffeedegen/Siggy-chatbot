@@ -88,24 +88,30 @@ export default function ChatPage() {
           </div>
         )}
         {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-          >
-            <div
-              className={`max-w-[85%] rounded-2xl px-4 py-3 ${
-                msg.role === "user"
-                  ? "bg-accent text-black rounded-br-md"
-                  : "bg-cosmic border border-slate-600/50 text-slate-200 rounded-bl-md"
-              }`}
-            >
-              <p className="text-sm font-bold mb-1">
-                {msg.role === "user" ? "You" : "Siggy"}
-              </p>
-              <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
-            </div>
-          </div>
-        ))}
+  <div
+    key={msg.id}
+    className={`flex items-end gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+  >
+    {msg.role === "assistant" && (
+      <img src="/siggy-avatar.png" alt="Siggy" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+    )}
+    <div
+      className={`max-w-[85%] rounded-2xl px-4 py-3 ${
+        msg.role === "user"
+          ? "bg-accent text-black rounded-br-md"
+          : "bg-cosmic border border-slate-600/50 text-slate-200 rounded-bl-md"
+      }`}
+    >
+      <p className="text-sm font-bold mb-1">
+        {msg.role === "user" ? "You" : "Siggy"}
+      </p>
+      <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+    </div>
+    {msg.role === "user" && (
+      <img src="/user-avatar.png" alt="You" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+    )}
+  </div>
+))}
         {loading && (
           <div className="flex justify-start">
             <div className="bg-cosmic border border-slate-600/50 rounded-2xl rounded-bl-md px-4 py-3">
