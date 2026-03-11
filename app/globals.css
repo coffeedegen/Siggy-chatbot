@@ -3,29 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #18191A;        /* Main background */
-  --color-bg-secondary: #222324;      /* Slightly lighter for cards/panels */
-  --color-bg-elevated: #2C2D2F;       /* Input fields, hover states */
-  --color-accent: #40FFAF;            /* Primary accent — Send button, links, active states */
-  --color-accent-hover: #2EDEA0;      /* Slightly muted accent for hover */
-  --color-accent-glow: rgba(64, 255, 175, 0.15); /* Soft glow for focus rings */
-  --color-text-primary: #F0F0F0;      /* Main body text */
-  --color-text-secondary: #A0A2A5;    /* Timestamps, subtitles, placeholders */
-  --color-text-on-accent: #0D1F17;    /* Dark text rendered ON accent-colored elements */
-  --color-border: rgba(255,255,255,0.08); /* Subtle dividers and borders */
+  --color-bg-primary: #18191A;
+  --color-bg-secondary: #222324;
+  --color-bg-elevated: #2C2D2F;
+  --color-accent: #40FFAF;
+  --color-accent-hover: #2EDEA0;
+  --color-accent-glow: rgba(64, 255, 175, 0.15);
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #A0A2A5;
+  --color-text-on-accent: #0D1F17;
+  --color-border: rgba(255,255,255,0.08);
 }
 
 body {
-  background: var(--void);
-  color: #e2e8f0;
+  background: var(--color-bg-primary);  /* ✅ was var(--void) which doesn't exist */
+  color: var(--color-text-primary);     /* ✅ was hardcoded #e2e8f0 */
 }
 
-/* Scrollbar styling for chat */
 .chat-scroll::-webkit-scrollbar {
   width: 8px;
 }
 .chat-scroll::-webkit-scrollbar-track {
-  background: var(--cosmic);
+  background: var(--color-bg-secondary); /* ✅ was var(--cosmic) which doesn't exist */
 }
 .chat-scroll::-webkit-scrollbar-thumb {
   background: #374151;
