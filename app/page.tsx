@@ -347,19 +347,19 @@ export default function ChatPage() {
           ))}
 
           {/* Loading */}
-          {loading && (
-            <div className="flex items-end gap-2 justify-start">
-              <img src="/siggy-avatar.png" alt="Siggy" className="w-7 h-7 md:w-8 md:h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30" />
-              <div className="bg-[#1a1a24] border border-white/5 rounded-2xl rounded-bl-sm px-4 py-3">
-                <p className="text-xs font-bold mb-2 opacity-40">Siggy</p>
-                <div className="flex gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#40FFAF]/50 animate-bounce [animation-delay:-0.3s]" />
-                  <span className="w-2 h-2 rounded-full bg-[#40FFAF]/50 animate-bounce [animation-delay:-0.15s]" />
-                  <span className="w-2 h-2 rounded-full bg-[#40FFAF]/50 animate-bounce" />
-                </div>
+          {loading && messages[messages.length - 1]?.role !== "assistant" && (
+          <div className="flex items-end gap-2 justify-start">
+            <img src="/siggy-avatar.png" alt="Siggy" className="w-7 h-7 md:w-8 md:h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30" />
+            <div className="bg-[#1a1a24] border border-white/5 rounded-2xl rounded-bl-sm px-4 py-3">
+              <p className="text-xs font-bold mb-2 opacity-40">Siggy</p>
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#40FFAF]/50 animate-bounce [animation-delay:-0.3s]" />
+                <span className="w-2 h-2 rounded-full bg-[#40FFAF]/50 animate-bounce [animation-delay:-0.15s]" />
+                <span className="w-2 h-2 rounded-full bg-[#40FFAF]/50 animate-bounce" />
               </div>
             </div>
-          )}
+          </div>
+        )}
         </div>
 
         {/* Input */}
