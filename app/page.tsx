@@ -372,7 +372,7 @@ export default function ChatPage() {
               Recent
             </p>
             {sessions.length === 0 && (
-              <p className="text-xs italic px-2" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "'Instrument Serif', serif" }}>
+              <p className="text-sm italic px-2" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "'Crimson Pro', serif", fontSize: "15px" }}>
                 No chats yet...
               </p>
             )}
@@ -441,7 +441,7 @@ export default function ChatPage() {
                 <line x1="2" y1="13" x2="16" y2="13" />
               </svg>
             </button>
-            <span className="text-sm font-bold tracking-wide" style={{ color: "#40FFAF" }}>
+            <span className="text-sm font-bold tracking-wide" style={{ color: "#40FFAF", fontFamily: "'Cinzel Decorative', serif", fontSize: "13px" }}>
               Siggy, the Wise
             </span>
             <button
@@ -667,10 +667,11 @@ export default function ChatPage() {
                     }
                   }}
                   placeholder="Ask Siggy anything..."
-                  className="flex-1 bg-transparent text-sm focus:outline-none siggy-font"
+                  className="flex-1 bg-transparent focus:outline-none siggy-font"
                   style={{
                     color: "rgba(232,245,240,0.9)",
-                    fontSize: "0.925rem",
+                    fontSize: "1.1rem",
+                    fontFamily: "'Crimson Pro', serif",
                   }}
                   disabled={loading}
                 />
@@ -686,7 +687,7 @@ export default function ChatPage() {
                 </button>
               </div>
             </form>
-            <p className="text-center mt-2" style={{ fontSize: "9px", color: "rgba(255,255,255,0.15)", letterSpacing: "0.1em" }}>
+            <p className="text-center mt-2" style={{ fontSize: "11px", color: "rgba(255,255,255,0.15)", letterSpacing: "0.15em", fontFamily: "'Cinzel Decorative', serif" }}>
               SIGGY MAY CONSULT DIMENSION 7 BEFORE RESPONDING
             </p>
           </div>
