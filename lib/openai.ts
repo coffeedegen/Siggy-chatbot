@@ -16,7 +16,7 @@ export const openai = new OpenAI({
 });
 
 /** Model used for chat completions (Siggy). */
-export const CHAT_MODEL = "gpt-5-mini";
+export const CHAT_MODEL = "gpt-4o-mini";
 
 /** Model used for embeddings (RAG). */
 export const EMBEDDING_MODEL = "text-embedding-3-small";
