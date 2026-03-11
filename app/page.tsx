@@ -194,17 +194,39 @@ export default function ChatPage() {
             <p className="text-xs text-white/20 italic px-1">No chats yet</p>
           )}
           {sessions.map((session) => (
-            <button
+            <div
               key={session.id}
-              onClick={() => loadSession(session)}
-              className={`text-left text-xs px-3 py-2 rounded-lg truncate transition-all ${
+              className={`group flex items-center gap-1 rounded-lg transition-all ${
                 currentSessionId === session.id
-                  ? "bg-[#40FFAF]/10 text-[#40FFAF] border border-[#40FFAF]/20"
-                  : "text-white/50 hover:text-white/80 hover:bg-white/5"
+                  ? "bg-[#40FFAF]/10 border border-[#40FFAF]/20"
+                  : "hover:bg-white/5"
               }`}
             >
-              {session.title}
-            </button>
+              <button
+                onClick={() => loadSession(session)}
+                className={`flex-1 text-left text-xs px-3 py-2 truncate transition-all ${
+                  currentSessionId === session.id
+                    ? "text-[#40FFAF]"
+                    : "text-white/50 hover:text-white/80"
+                }`}
+              >
+                {session.title}
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSessions((prev) => prev.filter((s) => s.id !== session.id));
+                  if (currentSessionId === session.id) {
+                    setCurrentSessionId(null);
+                    setMessages([]);
+                  }
+                }}
+                className="opacity-0 group-hover:opacity-100 text-white/30 hover:text-red-400 pr-2 text-xs transition-all flex-shrink-0"
+                title="Delete chat"
+              >
+                ✕
+              </button>
+            </div>
           ))}
         </div>
       </aside>
