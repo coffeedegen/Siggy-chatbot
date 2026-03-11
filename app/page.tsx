@@ -8,33 +8,93 @@ interface Message {
   content: string;
 }
 
+interface ChatSession {
+  id: string;
+  title: string;
+  messages: Message[];
+  createdAt: number;
+}
+
 const QUICK_PROMPTS = [
-  { label: "What is Ritual?", emoji: "⛩️" },
-  { label: "Explain Infernet", emoji: "🌐" },
-  { label: "Ritual vs others", emoji: "🔍" },
-  { label: "Build on Ritual", emoji: "🛠️" },
+  "Tell me more about Ritual.",
+  "What are today's events in Ritual?",
+  "Who are the moderators in Ritual?",
+  "What are the roles in Ritual?",
 ];
 
 export default function ChatPage() {
+  const [sessions, setSessions] = useState<ChatSession[]>([]);
+  const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Load sessions from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("siggy-sessions");
+    if (saved) {
+      const parsed: ChatSession[] = JSON.parse(saved);
+      setSessions(parsed);
+    }
+  }, []);
+
+  // Save sessions to localStorage whenever they change
+  useEffect(() => {
+    if (sessions.length > 0) {
+      localStorage.setItem("siggy-sessions", JSON.stringify(sessions));
+    }
+  }, [sessions]);
+
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages]);
 
+  function startNewChat() {
+    setCurrentSessionId(null);
+    setMessages([]);
+    setInput("");
+  }
+
+  function loadSession(session: ChatSession) {
+    setCurrentSessionId(session.id);
+    setMessages(session.messages);
+  }
+
+  function saveSession(sessionId: string, updatedMessages: Message[], firstUserMessage: string) {
+    setSessions((prev) => {
+      const existing = prev.find((s) => s.id === sessionId);
+      if (existing) {
+        return prev.map((s) =>
+          s.id === sessionId ? { ...s, messages: updatedMessages } : s
+        );
+      } else {
+        const newSession: ChatSession = {
+          id: sessionId,
+          title: firstUserMessage.slice(0, 40) + (firstUserMessage.length > 40 ? "..." : ""),
+          messages: updatedMessages,
+          createdAt: Date.now(),
+        };
+        return [newSession, ...prev];
+      }
+    });
+  }
+
   async function sendMessage(text: string) {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
+
+    const sessionId = currentSessionId ?? crypto.randomUUID();
+    if (!currentSessionId) setCurrentSessionId(sessionId);
 
     const userMessage: Message = {
       id: crypto.randomUUID(),
       role: "user",
       content: trimmed,
     };
-    setMessages((prev) => [...prev, userMessage]);
+
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
     setInput("");
     setLoading(true);
 
@@ -52,16 +112,19 @@ export default function ChatPage() {
         role: "assistant",
         content: data.reply ?? "No response.",
       };
-      setMessages((prev) => [...prev, assistantMessage]);
+
+      const finalMessages = [...updatedMessages, assistantMessage];
+      setMessages(finalMessages);
+      saveSession(sessionId, finalMessages, trimmed);
     } catch (err) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          content: `Something went wrong: ${err instanceof Error ? err.message : "Unknown error"}.`,
-        },
-      ]);
+      const errorMessage: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: `Something went wrong: ${err instanceof Error ? err.message : "Unknown error"}.`,
+      };
+      const finalMessages = [...updatedMessages, errorMessage];
+      setMessages(finalMessages);
+      saveSession(sessionId, finalMessages, trimmed);
     } finally {
       setLoading(false);
     }
@@ -73,87 +136,61 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex h-screen bg-[#0e0e10] text-white overflow-hidden" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-      
+    <div
+      className="flex h-screen bg-[#0e0e10] text-white overflow-hidden"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+    >
       {/* Sidebar */}
       <aside className="w-56 flex-shrink-0 bg-[#13131a] border-r border-white/5 flex flex-col p-4 gap-4">
         {/* Logo */}
         <div className="flex items-center gap-2 py-2">
-          <span className="w-2 h-2 rounded-full bg-[#40FFAF]" />
-          <span className="font-bold text-lg tracking-tight">
-            Ask<span className="text-[#40FFAF]">Siggy</span>
+          <img
+            src="/siggy-avatar.png"
+            alt="Siggy"
+            className="w-6 h-6 rounded-full object-cover"
+          />
+          <span className="font-bold text-base tracking-tight text-[#40FFAF]">
+            Siggy, the Wise
           </span>
         </div>
 
-        {/* Siggy Card */}
-        <div className="rounded-xl bg-[#1a1a24] border border-white/5 overflow-hidden">
-          <div className="h-24 bg-gradient-to-b from-[#40FFAF]/10 to-transparent flex items-center justify-center pt-3">
-            <img
-              src="/siggy-avatar.png"
-              alt="Siggy"
-              className="w-16 h-16 rounded-full object-cover border-2 border-[#40FFAF]/40"
-            />
-          </div>
-          <div className="p-3 text-center">
-            <div className="inline-flex items-center gap-1.5 bg-[#40FFAF]/10 text-[#40FFAF] text-xs font-medium px-2.5 py-1 rounded-full mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#40FFAF] animate-pulse" />
-              SIGGY ONLINE
-            </div>
-            <p className="text-xs text-white/40 leading-relaxed">
-              Your cosmic guide to Ritual Network. Cute but sharp. 🐾
-            </p>
-          </div>
-        </div>
+        {/* New Chat Button */}
+        <button
+          onClick={startNewChat}
+          className="flex items-center justify-center gap-2 w-full bg-[#40FFAF]/10 hover:bg-[#40FFAF]/20 border border-[#40FFAF]/30 hover:border-[#40FFAF]/60 text-[#40FFAF] text-sm font-semibold py-2.5 rounded-xl transition-all"
+        >
+          <span className="text-lg leading-none">+</span>
+          New Chat
+        </button>
 
-        {/* What Siggy can do */}
-        <div>
-          <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest mb-2">
-            What Siggy Can Do
+        {/* Chat History */}
+        <div className="flex flex-col gap-1 flex-1 overflow-y-auto">
+          <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest mb-1">
+            Recent Chats
           </p>
-          <ul className="flex flex-col gap-1">
-            {[
-              { icon: "⛩️", label: "Explain Ritual & Web3" },
-              { icon: "🤖", label: "On-chain AI & Infernet" },
-              { icon: "🔍", label: "Research & summarize" },
-              { icon: "💡", label: "Brainstorm ideas" },
-              { icon: "✍️", label: "Write & edit content" },
-            ].map((item) => (
-              <li
-                key={item.label}
-                className="flex items-center gap-2 text-xs text-white/50 hover:text-white/80 transition-colors px-2 py-1.5 rounded-lg hover:bg-white/5 cursor-default"
-              >
-                <span>{item.icon}</span>
-                <span>{item.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Footer hint */}
-        <div className="mt-auto text-[10px] text-white/20 leading-relaxed">
-          Press <kbd className="bg-white/10 px-1 rounded">Enter</kbd> to send
-          <br />
-          <kbd className="bg-white/10 px-1 rounded">Shift+Enter</kbd> for new line
+          {sessions.length === 0 && (
+            <p className="text-xs text-white/20 italic px-1">No chats yet</p>
+          )}
+          {sessions.map((session) => (
+            <button
+              key={session.id}
+              onClick={() => loadSession(session)}
+              className={`text-left text-xs px-3 py-2 rounded-lg truncate transition-all ${
+                currentSessionId === session.id
+                  ? "bg-[#40FFAF]/10 text-[#40FFAF] border border-[#40FFAF]/20"
+                  : "text-white/50 hover:text-white/80 hover:bg-white/5"
+              }`}
+            >
+              {session.title}
+            </button>
+          ))}
         </div>
       </aside>
 
       {/* Main Chat Area */}
       <main className="flex flex-col flex-1 min-w-0">
-        
-        {/* Top bar */}
-        <header className="flex items-center justify-between px-6 py-3 border-b border-white/5 flex-shrink-0">
-          <div>
-            <p className="text-[10px] uppercase tracking-widest text-white/30 font-semibold">Conversation</p>
-            <h1 className="text-base font-bold text-white">Chat with Siggy</h1>
-          </div>
-          <div className="border border-[#40FFAF]/40 text-[#40FFAF] text-xs font-bold px-4 py-1.5 rounded-full tracking-widest">
-            READY
-          </div>
-        </header>
-
         {/* Messages */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-6 py-6 space-y-4">
-          
           {/* Empty state */}
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full gap-6 pb-8">
@@ -166,23 +203,22 @@ export default function ChatPage() {
                 />
               </div>
               <div className="text-center">
-                <h2 className="text-2xl font-bold mb-1">
-                  Hey there! I'm <span className="text-[#40FFAF]">Siggy</span>
+                <h2 className="text-2xl font-bold mb-2">
+                  Siggy, <span className="text-[#40FFAF]">the Wise</span>
                 </h2>
                 <p className="text-sm text-white/40 max-w-xs">
-                  Ask me anything about Ritual, Web3, or anything else — I'm here to help you explore, build, and understand.
+                  Siggy is ready to cast a spell of clarity on your problems.
                 </p>
               </div>
               {/* Quick prompt buttons */}
-              <div className="flex flex-wrap gap-2 justify-center max-w-sm">
+              <div className="flex flex-col gap-3 w-full max-w-md">
                 {QUICK_PROMPTS.map((p) => (
                   <button
-                    key={p.label}
-                    onClick={() => sendMessage(p.label)}
-                    className="flex items-center gap-1.5 text-sm text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#40FFAF]/30 px-3 py-2 rounded-full transition-all"
+                    key={p}
+                    onClick={() => sendMessage(p)}
+                    className="w-full text-sm text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#40FFAF]/40 px-5 py-3 rounded-xl transition-all text-center font-medium"
                   >
-                    <span>{p.emoji}</span>
-                    <span>{p.label}</span>
+                    {p}
                   </button>
                 ))}
               </div>
@@ -193,10 +229,16 @@ export default function ChatPage() {
           {messages.map((msg) => (
             <div
               key={msg.id}
-              className={`flex items-end gap-2.5 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+              className={`flex items-end gap-2.5 ${
+                msg.role === "user" ? "justify-end" : "justify-start"
+              }`}
             >
               {msg.role === "assistant" && (
-                <img src="/siggy-avatar.png" alt="Siggy" className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30" />
+                <img
+                  src="/siggy-avatar.png"
+                  alt="Siggy"
+                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30"
+                />
               )}
               <div
                 className={`max-w-[75%] rounded-2xl px-4 py-3 ${
@@ -208,10 +250,16 @@ export default function ChatPage() {
                 <p className="text-xs font-bold mb-1 opacity-60">
                   {msg.role === "user" ? "You" : "Siggy"}
                 </p>
-                <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.content}</p>
+                <p className="text-sm whitespace-pre-wrap leading-relaxed">
+                  {msg.content}
+                </p>
               </div>
               {msg.role === "user" && (
-                <img src="/user-avatar.png" alt="You" className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-white/20" />
+                <img
+                  src="/user-avatar.png"
+                  alt="You"
+                  className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-white/20"
+                />
               )}
             </div>
           ))}
@@ -219,7 +267,11 @@ export default function ChatPage() {
           {/* Loading */}
           {loading && (
             <div className="flex items-end gap-2.5 justify-start">
-              <img src="/siggy-avatar.png" alt="Siggy" className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30" />
+              <img
+                src="/siggy-avatar.png"
+                alt="Siggy"
+                className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-[#40FFAF]/30"
+              />
               <div className="bg-[#1a1a24] border border-white/5 rounded-2xl rounded-bl-sm px-4 py-3">
                 <p className="text-xs font-bold mb-2 opacity-40">Siggy</p>
                 <div className="flex gap-1.5">
